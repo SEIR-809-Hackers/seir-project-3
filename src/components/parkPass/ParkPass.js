@@ -1,10 +1,11 @@
 import React from 'react';
 import ParkPassList from './ParkPassList';
 
-function ParkPass({user}) {
+function ParkPass({user,parks,reviews,setReview}) {
     return (
         <div>
-            <ParkPassList/>
+            <h1>{user[0].name}</h1>
+            <ParkPassList user={user} reviews={reviews} setReview={setReview}/>
         </div>
     );
 }

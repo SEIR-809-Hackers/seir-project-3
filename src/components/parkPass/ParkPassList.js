@@ -2,11 +2,11 @@ import React from 'react';
 import ParkPassItem from './ParkPassItem';
 import ParkReviews from './ParkReviews';
 
-function ParkPassList(props) {
+function ParkPassList({user, reviews, setReview}) {
     return (
         <div>
-            <ParkPassItem/>
-            <ParkReviews/>
+            <ParkPassItem user={user}/>
+            <ParkReviews user={user} reviews={reviews} setReview={setReview}/>
         </div>
     );
 }

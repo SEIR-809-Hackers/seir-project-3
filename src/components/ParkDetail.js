@@ -5,14 +5,14 @@ function ParkDetail({parks}) {
 
     const {id} = useParams();
 
-    let park = parks.find(() => {
-        return id === parks._id
+    let selectPark = parks.find((park) => {
+        return id === park._id
     })
 
     return (
         <div>
-            <h1>{park.ParksName}</h1>
-            <p>{park.ParkDetails}</p>
+            {/* <h1>{selectPark.ParksName}</h1>
+            <p>{selectPark.ParkDetails}</p> */}
         </div>
     );
 }
