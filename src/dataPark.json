@@ -1,0 +1,15 @@
+[
+{
+
+"ParksName": "Yosemite",
+"ParkDetails": "Nice and big park, in California",
+"ParkImages": "https://i.imgur.com/LDMj54B.png",
+"ParkLocation": "California",
+"ParkReviews":  [
+    {
+"review1": "Yosemite has long been a place of inspiration for artists, climbers, and nature lovers.",
+"review2": "Beginning in the 1920s, Ansel Adams' stunning black-and-white photographs of Yosemite drew attention to the park's breathtaking landscapes and iconic sites like never before.."
+    }
+]
+}
+]

@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Pablo Acebedo",
+        "myParks": [
+            {
+                "wantToSee": ["Lake Tahoe", "Lake Louise", "Indian Creel"],
+                "parkSeen": ["Yosemite", "Red River", "Rocky Mountain National Park", "Linville Gorge"]
+            }
+        ],
+        "reviews":"Following climbers descended on the park and agonized over how to ascend the magnificent sheer walls. In their attempts, failures, and eventual successes, they created a cult following in Yosemite like no other climbing area in history."
+    }
+]
