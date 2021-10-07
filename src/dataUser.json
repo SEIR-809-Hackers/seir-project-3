@@ -1,7 +1,39 @@
 [
     {
-        "name": "Pablo Acebedo",
-        "myParks": [ "Lake Tahoe", "Lake Louise", "Indian Creel"],
-        "reviews":"Following climbers descended on the park and agonized over how to ascend the magnificent sheer walls. In their attempts, failures, and eventual successes, they created a cult following in Yosemite like no other climbing area in history."
+       "_id": "1968",
+       "name": "Esin",
+       "myParks" : 
+       
+       [
+           
+        
+            {
+               "park":
+                    {
+                        "_id": "123",
+                        "ParkName": "Acadia",
+                        "ParkDetails": "Fantastic Park",
+                        "ParkImage": "url",
+                        "ParkLocation": "US",
+                        "users": [
+                            "0001",
+                            "0002",
+                            "0003",
+                            "0004"
+                        ],
+                        "revies": [],
+                        "_v" : 0
+                        
+
+                    
+                    },
+                    
+                "seen": true,
+                "-id": "1975"
+                    
+                    
+            }
+       ]
+       
     }
 ]

@@ -1,37 +1,39 @@
 import React from 'react';
 import {useState} from 'react';
+import MainForm from '../styles/form';
 
 
-function UserForm({setUser}) {
-
-    let username = null;
+function UserForm({user,setUser}) {
+    [user, setUser] = useState({
+        name: ''
+    });
 
     function handleSubmit(event){
         event.preventDefault();
-        setUser()
+
     }
 
     function handleChange(event){
         event.preventDefault();
-        username = event.target.value
+        setUser({[event.target.id]:event.target.name})
+
     }
 
     return (
-        <div className='user-form'>
+        <MainForm className='user-form'>
             <form onSubmit={handleSubmit}>
                 <p>
                     <strong>
                         Username:
                     </strong>
                 </p>
-                <input type='text'onChange={handleChange}/>
+                <input type='text' id='name' onChange={handleChange}/>
                 {/* add pass */}
-
                 <button type='submit'>
                     <strong>LOGIN</strong>
                 </button>
             </form>
-        </div>
+        </MainForm>
     );
 }
 

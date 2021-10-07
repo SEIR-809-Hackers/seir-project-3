@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
-const UserMain = styled.main;
+const MainUser = styled.main`
+  background-color: papayawhip;
 
-export default UserMain;
+`
+
+
+
+export default MainUser;

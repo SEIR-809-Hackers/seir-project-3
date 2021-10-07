@@ -1,27 +1,28 @@
-import React from 'react';
-import { useState } from 'react';
 
-function ParkReviewForm({ review, setReview }) {
+// import React from 'react';
+// import { useState } from 'react';
 
-	function handleSubmit() {}
+// function ParkReviewForm({ review, setReview }) {
 
-	function handleChangeTitle() {}
-	function handleChangeBody() {}
+// 	function handleSubmit() {}
 
-	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<h3>Title:</h3>
-				<input type='text' onChange={handleChangeTitle}></input>
-				<p>Body:</p>
-				<input type='text' onChange={handleChangeBody}></input>
+// 	function handleChangeTitle() {}
+// 	function handleChangeBody() {}
 
-				<button type='submit'>
-					<strong>SUBMIT</strong>
-				</button>
-			</form>
-		</div>
-	);
-}
+// 	return (
+// 		<div>
+// 			<form onSubmit={handleSubmit}>
+// 				<h3>Title:</h3>
+// 				<input type='text' onChange={handleChangeTitle}></input>
+// 				<p>Body:</p>
+// 				<input type='text' onChange={handleChangeBody}></input>
 
-export default ParkReviewForm;
+// 				<button type='submit'>
+// 					<strong>SUBMIT</strong>
+// 				</button>
+// 			</form>
+// 		</div>
+// 	);
+// }
+
+// export default ParkReviewForm;

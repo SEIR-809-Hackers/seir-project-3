@@ -1,23 +1,25 @@
-import React from 'react';
-import {useState} from 'react';
-import ParkReviewForm from './ParkReviewForm';
+// import MainReview from "../styles/review";
 
-function ParkReviews({user,reviews, setReview}) {
+// import React from 'react';
+// import {useState} from 'react';
+// import ParkReviewForm from './ParkReviewForm';
 
-    // const[modal, setModal] = useState(false)
+// function ParkReviews({user,reviews, setReview}) {
 
-    // showModal = () => {
-    //     this.setModal({show: true})
-    // }
+//     // const[modal, setModal] = useState(false)
 
-    return (
-			<div>
-                <main>
-                    <p>{user[0].reviews}</p>
-                </main>
-				<ParkReviewForm/>
-			</div>
-		);
-}
+//     // showModal = () => {
+//     //     this.setModal({show: true})
+//     // }
 
-export default ParkReviews;
+//     return (
+// 			<div>
+//                 <main>
+//                     <p>{user[0].reviews}</p>
+//                 </main>
+// 				<ParkReviewForm/>
+// 			</div>
+// 		);
+// }
+
+// export default ParkReviews;

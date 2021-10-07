@@ -1,5 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components/'
 
-const MainForm = styled.form;
+const MainForm = styled.form`
+  background-color: papayawhip;
+`
+
 
 export default MainForm;
