@@ -2,23 +2,31 @@ import React from 'react';
 import { useState } from 'react';
 import MainForm from '../styles/form';
 import axios from 'axios';
+import { useContext } from 'react';
+import { DataContext } from '../../DataContext'
 
-function UserForm({ user, setUser }) {
-	const [newUser, setNewUser] = useState({
+
+function SignIn() {
+   const { setCurrentUser } = useContext(DataContext) 
+   const [user, setUser] = useState({
 		username: '',
 		password: '',
 	});
+
 
 	async function handleSubmit(event) {
 		event.preventDefault();
 		// send user document to backend
 		try {
-			console.log(newUser);
-			let addUser = { ...newUser };
-			console.log(addUser);
-			const addUserURL = `https://fast-springs-20221.herokuapp.com/users/signup`;
-			let res = await axios.post(addUserURL, addUser);
-			// setUser([res]);
+			console.log(user);
+			const signInURL = `https://fast-springs-20221.herokuapp.com/users/signin`;
+			let res = await axios.post(signInURL, user);
+            // save to local stroge
+            localStorage.setItem('token', JSON.stringify(res.data.token))
+			//Access Local Token
+            // JSON.parse(localStorage.getItem('token')
+            setCurrentUser(user)
+            
 		} catch (error) {
 			console.log(error);
 		}
@@ -27,8 +35,9 @@ function UserForm({ user, setUser }) {
 	function handleChange(event) {
 		// set user to current state
 		event.preventDefault();
-		setNewUser({ ...newUser, [event.target.id]: event.target.value });
+		setUser({ ...user, [event.target.id]: event.target.value });
 	}
+
 
 	return (
 		<MainForm className='user-form'>
@@ -42,11 +51,11 @@ function UserForm({ user, setUser }) {
 				</label>
 				<input type='text' id='password' onChange={handleChange} />
 				<button type='submit'>
-					<strong>Sign Up</strong>
+					<strong>LOGIN</strong>
 				</button>
 			</form>
 		</MainForm>
 	);
 }
 
-export default UserForm;
+export default SignIn;

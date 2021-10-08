@@ -1,6 +1,6 @@
 import styled from 'styled-components/'
 
-const MainForm = styled.form`
+const MainForm = styled.main`
   background-color: papayawhip;
 `
 

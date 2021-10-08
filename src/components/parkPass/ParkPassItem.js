@@ -8,11 +8,12 @@ function ParkPassItem({user}) {
 
     return (
 			<MainList>
-				{parks.map((seen) => (
+				{parks.map((select) => (
 					<Link
-						to={'/parks/' + seen.park._id}
+						to={'/parks/' + select.park._id}
 						style={{ textDecoration: 'none' }}>
-						<p>{seen.park.ParkName}</p>
+						<p>{select.park.parkName}</p>
+                        {select.seen ? <p>(hiked)🥾</p> : <p>(want to see)🏔</p>}
 					</Link>
 				))}
 			</MainList>
