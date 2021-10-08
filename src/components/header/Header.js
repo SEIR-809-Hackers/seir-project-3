@@ -5,12 +5,16 @@ import MainHeader from '../styles/header';
 
 function Header({user}) {
     return (
+        <div class='card'>
+
         <MainHeader>
             <Link to='/' style={{textDecoration: "none"}}>
-            <h1>ParkPass</h1>
+            <h2>ParkPass</h2>
             </Link>
             <User user={user}/>
         </MainHeader>
+
+        </div>
     );
 }
 

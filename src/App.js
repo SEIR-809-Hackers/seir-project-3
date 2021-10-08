@@ -50,10 +50,14 @@ function App() {
 					path='/'
 					render={() => <Header user={user} setNewUser={setNewUser} />}
 				/>
+				<div className='list'>
+
 				<Route
 					path='/'
 					render={() => <ParkList parks={parks} setParks={setParks} />}
 				/>
+
+				</div>
 				<Route exact path='/' render={() => <Home parks={parks} />} />
 				<Route
 					path='/parks/:id'

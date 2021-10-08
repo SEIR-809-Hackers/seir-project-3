@@ -34,9 +34,11 @@ function ParkDetail({ parks, user }) {
 	}
 
 	 return (
+		 <div class='card detail'>
+			 <section class='right'></section>
 			<MainPark>
 				<h1>{selectPark.parkName}</h1>
-				<img src={`${selectPark.images[0]}`} alt='trees' />
+				{/* <img src={`${selectPark.images[0]}`} alt='trees' /> */}
 				<p>{selectPark.parkDetails}</p>
 				<div>
 					<PrimaryButton onClick={setHiked}>HIKED 🥾</PrimaryButton>
@@ -47,6 +49,7 @@ function ParkDetail({ parks, user }) {
 					<p>{act.name}</p>
 				))} */}
 			</MainPark>
+		 </div>
 		);
 }
 

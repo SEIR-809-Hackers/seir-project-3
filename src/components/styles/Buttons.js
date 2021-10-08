@@ -12,9 +12,11 @@ export const Button = styled.button`
 `;
 
 export const PrimaryButton = styled(Button)`
-    background-color: lightblue;
-    border: bold;;
+    background-color: white;
+    opacity: 0.8;
+    border: bold;
     color: brown;
+    border-radius: 10%10px;
 
     &:hover {
     background-color: orange;
