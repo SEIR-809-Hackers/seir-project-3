@@ -54,6 +54,7 @@ function SignIn() {
 						<strong>Username:</strong>
 					</label> */}
 					<input
+						required
 						placeholder='username'
 						type='text'
 						id='username'
@@ -63,8 +64,9 @@ function SignIn() {
 						<strong>Password:</strong>
 					</label> */}
 					<input
+						required
 						placeholder='password'
-						type='text'
+						type='password'
 						id='password'
 						onChange={handleChange}
 					/>
