@@ -182,6 +182,14 @@ input {
     height: 20%;
 }
 
+/* Park Details */
+
+.park-image {
+    object-fit: contain;
+    height:50%;
+    width: 50%;
+}
+
 
 @media (max-width: 800px) {
     .left {
