@@ -7,12 +7,14 @@ import { DataContext } from '../../DataContext';
 
 function Header() {
 	const { setCurrentUser } = useContext(DataContext); 
-	const {loginStatus} = useContext(DataContext)
+	const {loginStatus, setLoginStatus} = useContext(DataContext)
 
 
 	function logOutUser() {
 		// clear currentUser, and remove token from local-storage;
-		console.log("User is logged out!")
+		localStorage.setItem('loginStatus', 'false');
+		localStorage.setItem('token', '');
+		setLoginStatus(false);
 	}
 
     return (
