@@ -4,6 +4,8 @@ import MainForm from '../styles/form';
 import axios from 'axios';
 import { useContext } from 'react';
 import { DataContext } from '../../DataContext'
+import adventure from '../../assets/adventure.png'
+import femAvatar from '../../assets/femAvatar.png'
 
 
 function SignIn() {
@@ -40,21 +42,36 @@ function SignIn() {
 
 
 	return (
-		<MainForm className='user-form'>
-			<form onSubmit={handleSubmit}>
-				<label>
-					<strong>Username:</strong>
-				</label>
-				<input type='text' id='username' onChange={handleChange} />
-				<label>
-					<strong>password:</strong>
-				</label>
-				<input type='text' id='password' onChange={handleChange} />
-				<button type='submit'>
-					<strong>LOGIN</strong>
-				</button>
-			</form>
-		</MainForm>
+		<div className='user-form'>
+			<div className='form-message'>
+				<img className='form-image left' src={adventure}></img>
+			</div>
+			<div className='container'>
+				<h3 className='main-message'>Continue The Adventure</h3>
+				<img src={femAvatar} className='form-image avatar'></img>
+				<form onSubmit={handleSubmit} className='form-body'>
+					{/* <label>
+						<strong>Username:</strong>
+					</label> */}
+					<input
+						placeholder='username'
+						type='text'
+						id='username'
+						onChange={handleChange}
+					/>
+					{/* <label>
+						<strong>Password:</strong>
+					</label> */}
+					<input
+						placeholder='password'
+						type='text'
+						id='password'
+						onChange={handleChange}
+					/>
+					<button className='btn login-btn'type='submit'>Login</button>
+				</form>
+			</div>
+		</div>
 	);
 }
 

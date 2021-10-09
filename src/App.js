@@ -4,6 +4,9 @@ import Header from './components/header/Header';
 import Home from './components/Home';
 import ParkList from './components/parkList/ParkList';
 import ParkDetail from './components/ParkDetail';
+import User from './components/header/User';
+import SignIn from './components/header/SignIn';
+import UserForm from './components/header/UserForm';
 import { Route, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ParkPass from './components/parkPass/ParkPass';
@@ -57,7 +60,7 @@ function App() {
 			'https://fast-springs-20221.herokuapp.com/users/' + username;
 		let res = axios.get(userURL, config);
 
-		setUser(res)
+		setUser(res);
 	}, []);
 
 	return (
@@ -70,18 +73,31 @@ function App() {
 							<Header user={user} setCurrentUser={setCurrentUser} />
 						)}
 					/>
+					<User user={user} setCurrentUser={setCurrentUser} />
+					<Route exact path='/users/signup'>
+						<UserForm setUser={setUser} />
+					</Route>
+					<Route exact path='/users/login'>
+						<SignIn />
+					</Route>
 				</DataContext.Provider>
+				<Route exact path='/'>
+					<Home />
+				</Route>
 
 				<Route
-					path='/'
+					exact
+					path='/parks'
 					render={() => <ParkList parks={parks} setParks={setParks} />}
 				/>
-				<Route exact path='/' render={() => <Home parks={parks} />} />
+
 				<Route
+					exact
 					path='/parks/:id'
 					render={() => <ParkDetail parks={parks} user={user} />}
 				/>
 				<Route
+					exact
 					path='/parkpass'
 					render={() => (
 						<ParkPass

@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import MainForm from '../styles/form';
 import axios from 'axios';
+import adventure from '../../assets/joinImage.png';
+import femAvatar from '../../assets/maleAvatar.png';
 
 function UserForm({ user, setUser }) {
 	const [newUser, setNewUser] = useState({
@@ -31,21 +33,38 @@ function UserForm({ user, setUser }) {
 	}
 
 	return (
-		<MainForm className='user-form'>
-			<form onSubmit={handleSubmit}>
-				<label>
-					<strong>Username:</strong>
-				</label>
-				<input type='text' id='username' onChange={handleChange} />
-				<label>
-					<strong>password:</strong>
-				</label>
-				<input type='text' id='password' onChange={handleChange} />
-				<button type='submit'>
-					<strong>Sign Up</strong>
-				</button>
-			</form>
-		</MainForm>
+		<div className='user-form'>
+			<div className='form-message'>
+				<img className='form-image left sign' src={adventure}></img>
+			</div>
+			<div className='container'>
+				<h3 className='main-message'>Join The Adventure</h3>
+				<img src={femAvatar} className='form-image avatar male'></img>
+				<form onSubmit={handleSubmit} className='form-body'>
+					{/* <label>
+						<strong>Username:</strong>
+					</label> */}
+					<input
+						placeholder='username'
+						type='text'
+						id='username'
+						onChange={handleChange}
+					/>
+					{/* <label>
+						<strong>Password:</strong>
+					</label> */}
+					<input
+						placeholder='password'
+						type='text'
+						id='password'
+						onChange={handleChange}
+					/>
+					<button className='btn login-btn' type='submit'>
+						Sign Up
+					</button>
+				</form>
+			</div>
+		</div>
 	);
 }
 
