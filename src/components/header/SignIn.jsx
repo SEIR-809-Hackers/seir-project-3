@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import MainForm from '../styles/form';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom'
 import { useContext } from 'react';
 import { DataContext } from '../../DataContext'
 import adventure from '../../assets/adventure.png'
@@ -10,6 +11,7 @@ import femAvatar from '../../assets/femAvatar.png'
 
 function SignIn() {
    const { setCurrentUser } = useContext(DataContext) 
+   const {loginStatus, setLoginStatus} = useContext(DataContext)
    const [user, setUser] = useState({
 		username: '',
 		password: '',
@@ -27,7 +29,9 @@ function SignIn() {
             localStorage.setItem('token', JSON.stringify(res.data.token))
 			//Access Local Token
             // JSON.parse(localStorage.getItem('token')
-            setCurrentUser(user)
+			localStorage.setItem('loginStatus', JSON.stringify(loginStatus))
+            setCurrentUser(user);
+			setLoginStatus(true);
             
 		} catch (error) {
 			console.log(error);

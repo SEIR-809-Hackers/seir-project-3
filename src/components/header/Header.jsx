@@ -2,26 +2,51 @@ import React from 'react';
 import User from './User';
 import {Route, Link} from 'react-router-dom'
 import MainHeader from '../styles/header';
+import { useContext } from 'react';
+import { DataContext } from '../../DataContext';
 
-function Header({user,setCurrentUser}) {
+function Header() {
+	const { setCurrentUser } = useContext(DataContext); 
+	const {loginStatus} = useContext(DataContext)
+
+
+	function logOutUser() {
+		// clear currentUser, and remove token from local-storage;
+		console.log("User is logged out!")
+	}
+
     return (
 			<header>
 				<Link to='/' style={{ textDecoration: 'none' }}>
 					<h1>ParkPass</h1>
 				</Link>
-				<nav>
-					<ul className='header-list'>
-						<Link to='/parks'>
-							<li>Parks</li>
-						</Link>
-						<Link to='/users/login'>
-							<li className='header-item'>Login</li>
-						</Link>
-						<Link to='/users/signup'>
-							<li className='header-item'>Sign Up</li>
-						</Link>
-					</ul>
-				</nav>
+				{
+					loginStatus ? 
+					<nav>
+						<ul className='header-list'>
+							<Link to='/parks'>
+								<li>Parks</li>
+							</Link>
+							<Link to='/parkpass'>
+								<li className='header-item'>PassParks</li>
+							</Link>
+								<button onClick={logOutUser}className='header-item'>Log Out</button>
+						</ul>
+					</nav> :
+					<nav>
+						<ul className='header-list'>
+							<Link to='/parks'>
+								<li>Parks</li>
+							</Link>
+							<Link to='/users/login'>
+								<li className='header-item'>Login</li>
+							</Link>
+							<Link to='/users/signup'>
+								<li className='header-item'>Sign Up</li>
+							</Link>
+						</ul>
+					</nav>
+				}
 			</header>
 		);
 }

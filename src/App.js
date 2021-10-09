@@ -20,6 +20,7 @@ import DataUser from './dataUser.json';
 function App() {
 	const [parks, setParks] = useState([]);
 	const [user, setUser] = useState([]);
+	const [loginStatus, setLoginStatus] = useState(false || localStorage.getItem('loginStatus'));
 	const [currentUser, setCurrentUser] = useState([]);
 	const [reviews, setReviews] = useState(DataReview);
 
@@ -36,19 +37,8 @@ function App() {
 			})
 			.catch((err) => console.log(err));
 
-		//   fetch(userURL)
-		// 			.then((res) => res.json())
-		// 			.then((res) => {
-		// 				setUser(res);
-		// 			})
-		// 			.catch((err) => console.log(err));
-
 		return () => {};
 	}, []);
-
-	// function updateUser(obj) {
-	// 	setCurrentUser(obj);
-	// }
 
 	useEffect(() => {
 		let username = currentUser.username;
@@ -66,11 +56,11 @@ function App() {
 	return (
 		<>
 			<div className='App'>
-				<DataContext.Provider value={{ setCurrentUser, user, setUser }}>
+				<DataContext.Provider value={{ setCurrentUser, user, setUser, loginStatus, setLoginStatus }}>
 					<Route
 						path='/'
 						render={() => (
-							<Header user={user} setCurrentUser={setCurrentUser} />
+							<Header />
 						)}
 					/>
 					<User user={user} setCurrentUser={setCurrentUser} />
