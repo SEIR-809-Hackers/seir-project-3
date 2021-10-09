@@ -45,6 +45,14 @@ function UserForm({ user, setUser }) {
 						<strong>Username:</strong>
 					</label> */}
 					<input
+						required
+						placeholder='email'
+						type='text'
+						id='username'
+						onChange={handleChange}
+					/>
+					<input
+						required
 						placeholder='username'
 						type='text'
 						id='username'
@@ -54,8 +62,16 @@ function UserForm({ user, setUser }) {
 						<strong>Password:</strong>
 					</label> */}
 					<input
+						required
 						placeholder='password'
-						type='text'
+						type='password'
+						id='password'
+						onChange={handleChange}
+					/>
+					<input
+						required
+						placeholder='confirm password'
+						type='password'
 						id='password'
 						onChange={handleChange}
 					/>
