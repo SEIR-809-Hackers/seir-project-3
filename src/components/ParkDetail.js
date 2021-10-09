@@ -51,10 +51,10 @@ function ParkDetail({ parks, user }) {
 					</div>
 				</div>
 
-				{/* {selctPark.activities <h3>Activities:</h3>
-				{activities.map((act) => (
+				<h3>Activities:</h3>
+				{selectPark.activities.map((act) => (
 					<p>{act.name}</p>
-				))}} */}
+				))}
 			</MainPark>
 		);
 }
