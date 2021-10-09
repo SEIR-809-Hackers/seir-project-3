@@ -84,31 +84,30 @@ function App() {
 				<Route exact path='/'>
 					<Home />
 				</Route>
-
+				<div className='parks-layout'>
 				<Route
-					exact
 					path='/parks'
 					render={() => <ParkList parks={parks} setParks={setParks} />}
 				/>
-
-				<Route
-					exact
-					path='/parks/:id'
-					render={() => <ParkDetail parks={parks} user={user} />}
-				/>
-				<Route
-					exact
-					path='/parkpass'
-					render={() => (
-						<ParkPass
-							parks={parks}
-							setParks={setParks}
-							user={user}
-							reviews={reviews}
-							setReviews={setReviews}
-						/>
-					)}
-				/>
+					<Route
+						exact
+						path='/parks/:id'
+						render={() => <ParkDetail parks={parks} user={user} />}
+					/>
+					<Route
+						exact
+						path='/parkpass'
+						render={() => (
+							<ParkPass
+								parks={parks}
+								setParks={setParks}
+								user={user}
+								reviews={reviews}
+								setReviews={setReviews}
+							/>
+						)}
+					/>
+				</div>
 			</div>
 		</>
 	);

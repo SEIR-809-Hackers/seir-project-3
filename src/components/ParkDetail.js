@@ -35,26 +35,37 @@ function ParkDetail({ parks, user }) {
 
 	 return (
 			<MainPark>
-				<div>
-					<h1>{selectPark.parkName}</h1>
+				<div className='container'>
 					<img
 						className='park-image'
 						src={`${selectPark.images[0].url}`}
 						alt='trees'
+						style={{ width: '100%' }}
 					/>
+					<div className='centered'>
+						<h3>{selectPark.parkName}</h3>
+					</div>
 				</div>
-				<div>
+				<div className='park-details'>
 					<p>{selectPark.parkDetails}</p>
 					<div>
 						<PrimaryButton onClick={setHiked}>HIKED 🥾</PrimaryButton>
 						<PrimaryButton onClick={setWantToSee}>WANT TO SEE ⛰</PrimaryButton>
 					</div>
 				</div>
+				<div className='acts'>
+						{!selectPark.activities.length ? null : (
+							<div className='act-main'>
+								<h3>Activities:</h3>
 
-				<h3>Activities:</h3>
-				{selectPark.activities.map((act) => (
-					<p>{act.name}</p>
-				))}
+								<div className='activities'>
+									{selectPark.activities.map((act) => (
+										<p>{act.name}</p>
+									))}
+								</div>
+							</div>
+						)}
+				</div>
 			</MainPark>
 		);
 }

@@ -7,7 +7,7 @@ body {
 /* Header */
 
 header {
-	background-color: rgba(2, 24, 4, 0.95);
+	background-color: #444941;
 	color: white;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -20,9 +20,10 @@ h1 {
 	/* font-family: 'Montserrat', sans-serif; */
 	font-family: 'Roboto', sans-serif;
     font-weight: 900;
-	color: #5f9c64;;
+	color: #D5EEBB;
     margin-bottom: 0;
     margin-left:5px;
+    z-index: 1;
 }
 
 nav {
@@ -44,7 +45,7 @@ nav > ul {
 nav > ul > a {
 	grid-row: 1;
 	font-size: 100%;
-	color: #5f9c64;
+	color: #D5EEBB;
 	font-size: 20px;
 	margin: 0;
 	list-style: none;
@@ -53,7 +54,7 @@ nav > ul > a {
 }
 
 nav > ul > a:hover {
-	background-color: #295f57;
+	background-color: #5F7A61;
 	color: white;
 }
 
@@ -72,7 +73,7 @@ nav > ul > a:hover {
     position: absolute;
 	z-index: 1;
     margin-top: 20%;
-    color:#052923;
+    color:#444941;
     font-size: 2rem;
 
 }
@@ -83,14 +84,14 @@ nav > ul > a:hover {
     border:none;
     padding:10px 20px;
     font-size: 2rem;
-    background-color: #052923;
+    background-color: #444941;
     color:white;
 
 }
 
 .btn:hover {
-    background-color: #295f57;
-    color:#052923
+    background-color: #D5EEBB;
+    color: #444941;
 }
 
 /* User Forms */
@@ -182,12 +183,57 @@ input {
     height: 20%;
 }
 
+
+
 /* Park Details */
+
+.parks-layout {
+    display: flex;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: #444941; 
+}
+
+
+.centered{
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+    font-size: 20px;
+    /* background-color: rgba(0, 0, 0, 0.5);
+    background-size: auto; */
+}
+
+.park-details {
+    text-align: center;
+}
 
 .park-image {
     object-fit: contain;
-    height:50%;
-    width: 50%;
+    height: 30vh;
+    width: auto;
+}
+
+.acts{
+ display: flex;
+ justify-content: center;
+}
+
+.act-main {
+    text-align: center;
+}
+
+
+.activities{
+  width: 200px;
+  height: 30vh;
+  overflow: scroll;
+  background-color: snow;
+  text-align: center;
 }
 
 
