@@ -1,11 +1,15 @@
 import React from 'react';
 import ParkPassList from './ParkPassList';
+import { useContext } from 'react';
+import { DataContext } from '../../DataContext';
 
-function ParkPass({user,parks,reviews,setReview}) {
+function ParkPass() {
+    const { currentUser, setCurrentUser } = useContext(DataContext);
     return (
         <div>
-            <h1>{user[0].name}</h1>
-            <ParkPassList user={user} reviews={reviews} setReview={setReview}/>
+            <h1>Hello</h1>
+            <h2>{currentUser.username}</h2>
+            <ParkPassList />
         </div>
     );
 }

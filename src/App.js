@@ -56,13 +56,19 @@ function App() {
 	return (
 		<>
 			<div className='App'>
-				<DataContext.Provider value={{ setCurrentUser, user, setUser, loginStatus, setLoginStatus }}>
-					<Route
-						path='/'
-						render={() => (
-							<Header />
-						)}
-					/>
+				<DataContext.Provider
+					value={{
+						currentUser,
+						setCurrentUser,
+						user,
+						setUser,
+						loginStatus,
+						setLoginStatus,
+						parks,
+						reviews,
+						setReviews,
+					}}>
+					<Route path='/' render={() => <Header />} />
 					<User user={user} setCurrentUser={setCurrentUser} />
 					<Route exact path='/users/signup'>
 						<UserForm setUser={setUser} />
@@ -70,34 +76,22 @@ function App() {
 					<Route exact path='/users/login'>
 						<SignIn />
 					</Route>
+					<Route exact path='/parkpass' render={() => <ParkPass />} />
+					<div className='parks-layout'>
+						<Route
+							path='/parks'
+							render={() => <ParkList parks={parks} setParks={setParks} />}
+						/>
+						<Route
+							exact
+							path='/parks/:id'
+							render={() => <ParkDetail parks={parks} user={user} />}
+						/>
+					</div>
 				</DataContext.Provider>
 				<Route exact path='/'>
 					<Home />
 				</Route>
-				<div className='parks-layout'>
-				<Route
-					path='/parks'
-					render={() => <ParkList parks={parks} setParks={setParks} />}
-				/>
-					<Route
-						exact
-						path='/parks/:id'
-						render={() => <ParkDetail parks={parks} user={user} />}
-					/>
-					<Route
-						exact
-						path='/parkpass'
-						render={() => (
-							<ParkPass
-								parks={parks}
-								setParks={setParks}
-								user={user}
-								reviews={reviews}
-								setReviews={setReviews}
-							/>
-						)}
-					/>
-				</div>
 			</div>
 		</>
 	);

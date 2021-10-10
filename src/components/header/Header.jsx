@@ -3,9 +3,11 @@ import User from './User';
 import {Route, Link} from 'react-router-dom'
 import MainHeader from '../styles/header';
 import { useContext } from 'react';
+import { useHistory } from 'react-router-dom'
 import { DataContext } from '../../DataContext';
 
 function Header() {
+	
 	const { setCurrentUser } = useContext(DataContext); 
 	const {loginStatus, setLoginStatus} = useContext(DataContext)
 
