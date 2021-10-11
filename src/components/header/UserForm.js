@@ -7,6 +7,7 @@ import femAvatar from '../../assets/maleAvatar.png';
 
 function UserForm({ user, setUser }) {
 	const [newUser, setNewUser] = useState({
+		email: '',
 		username: '',
 		password: '',
 	});
@@ -48,7 +49,7 @@ function UserForm({ user, setUser }) {
 						required
 						placeholder='email'
 						type='text'
-						id='username'
+						id='email'
 						onChange={handleChange}
 					/>
 					<input
