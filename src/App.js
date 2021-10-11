@@ -36,21 +36,6 @@ function App() {
 				setParks(res);
 			})
 			.catch((err) => console.log(err));
-
-		return () => {};
-	}, []);
-
-	useEffect(() => {
-		let username = currentUser.username;
-		let token = JSON.parse(localStorage.getItem('token'));
-		let config = {
-			headers: { Bearer: token },
-		};
-		const userURL =
-			'https://fast-springs-20221.herokuapp.com/users/' + username;
-		let res = axios.get(userURL, config);
-
-		setUser(res);
 	}, []);
 
 	return (

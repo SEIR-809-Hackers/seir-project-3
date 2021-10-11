@@ -6,6 +6,12 @@ import MainPark from './styles/park';
 import axios from 'axios';
 import { useContext } from 'react';
 import { DataContext } from '../DataContext';
+import Carousel from 'react-bootstrap/Carousel'
+// import { Carousel } from 'react-responsive-carousel'
+// import '
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CarouselContainer from './CarouselContainer'
+
 
 function ParkDetail({ parks, user }) {
 	const { currentUser, setCurrentUser } = useContext(DataContext);
@@ -17,44 +23,69 @@ function ParkDetail({ parks, user }) {
 	});
 	console.log(id)
 	console.log(selectPark)
-
-	let url = `https://fast-springs-20221.herokuapp.com/parks/wantToSee/${id.id}/users/${userId}`;
+let url = `https://fast-springs-20221.herokuapp.com/parks/wantToSee/${id.id}/users/${userId}`;
 	let seenUrl = `https://fast-springs-20221.herokuapp.com/parks/parksSeen/${id.id}/users/${userId}`;
 
 	async function setHiked(event) {
 		event.preventDefault();
-		event.preventDefault();
+		console.log(JSON.parse(localStorage.getItem('token')));
+		console.log(id.id);
+		console.log(userId);
 		try {
-			let res = await axios.put(seenUrl, {headers: {
-				Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-			}})
-		} catch (error) {}
+			const res = await fetch(
+				seenUrl,
+				{
+					'Content-Type': 'application/json',
+					method: 'PUT',
+					headers: {
+						Authorization: `Bearer ${JSON.parse(
+							localStorage.getItem('token')
+						)}`,
+					},
+				}
+			);
+			console.log(res);
+		} catch (error) {
+			console.log(error.response.data);
+		}
 	}
 
 	async function setWantToSee(event) {
 		event.preventDefault();
 		try {
-			let res = await axios.put(url, {
-				headers: {
-					Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token')),
-				},
-			});
-		} catch (error) {}
+			console.log(localStorage.getItem('token'));
+			const res = await fetch(
+				url,
+				{
+					'Content-Type': 'application/json',
+					method: 'PUT',
+					headers: {
+						Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+					},
+				}
+			);
+			console.log(res);
+		} catch (error) {
+			console.log(error.response.data);
+		}
 		
 	}
-
+    
+	
 	 return (
 			<MainPark>
 				<div className='container'>
-					<img
-						className='park-image'
-						src={`${selectPark.images[0].url}`}
-						alt='trees'
-						style={{ width: '100%' }}
-					/>
 					<div className='centered'>
 						<h3>{selectPark.parkName}</h3>
 					</div>
+					<CarouselContainer selectPark={selectPark}/>
+					{/* <Carousel>
+						{selectPark.images.map(image => {
+							<div>
+								<img src={image.url}></img>
+							</div>
+						})}
+					</Carousel> */}
 				</div>
 				<div className='park-details'>
 					<p>{selectPark.parkDetails}</p>
