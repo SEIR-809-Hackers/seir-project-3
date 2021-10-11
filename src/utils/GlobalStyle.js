@@ -13,11 +13,11 @@ export const GlobalStyle = createGlobalStyle`
     }
     main {
         width: 90%;
-        margin: 
+        margin: 0 auto;
     }
 
     
 
 `
 
-export default GlobalStyle;
+// export default GlobalStyle;
