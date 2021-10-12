@@ -228,7 +228,7 @@ input {
     height: 100%;
     /* border: 1px solid black; */
     padding: 20px;
-    background-image: url('./assets/detail-bg.jpg');
+    /* background-image: url('./assets/detail-bg.jpg'); */
     background-size: cover;
     /* opacity: 0.1; */
 
@@ -362,4 +362,26 @@ h3 {
     padding: 10px;
     border-radius: 20px;
 }
+}
+
+/* Park Pass */
+.no-parks {
+	height: 30%;
+	width: 30%;
+	margin:0 auto;
+	justify-content: center;
+	
+
+}
+
+.no-parks-image {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	width: 50%;
+	margin-top: 50px;
+}
+.no-parks-image > h3 {
+	text-align: center;
+
 }

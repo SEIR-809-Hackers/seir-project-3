@@ -4,8 +4,10 @@ import MainForm from '../styles/form';
 import axios from 'axios';
 import adventure from '../../assets/joinImage.png';
 import femAvatar from '../../assets/maleAvatar.png';
+import { useHistory } from 'react-router-dom';
 
 function UserForm({ user, setUser }) {
+	let history = useHistory();
 	const [newUser, setNewUser] = useState({
 		email: '',
 		username: '',
@@ -25,6 +27,7 @@ function UserForm({ user, setUser }) {
 		} catch (error) {
 			console.log(error);
 		}
+		history.push('login')
 	}
 
 	function handleChange(event) {

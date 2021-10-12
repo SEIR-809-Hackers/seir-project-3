@@ -111,9 +111,6 @@ function ParkDetail({ parks, user }) {
 									''
 								) : (
 									<div className='buttons'>
-										<button onClick={setHiked} className='btn hiked'>
-											HIKED 🥾
-										</button>
 										<button onClick={setWantToSee} className='btn see'>
 											WANT TO SEE ⛰
 										</button>
