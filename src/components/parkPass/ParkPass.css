@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap");
+
+.welcome {
+  display: flex;
+}
+
+.welcome h2 {
+  margin-top: 40px;
+  margin-left: 5px;
+}
+
+.hiking {
+  height: 20%;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.list-select-parks {
+  background-color: #104d33;
+  color: white;
+}
+
+.each-park {
+  display: flex;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 0.5px dashed white;
+}
+.each-park p {
+  margin: 0 auto;
+}
+
+.divide {
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+h4 {
+  margin: auto auto;
+}
+
+.stamp {
+  height: 10%;
+  width: 10%;
+  margin: 0 15%;
+  border-left: 1px white dashed;
+  border-right: 1px white dashed;
+}
+
+.delete-park {
+  border: 0;
+  background-color: transparent;
+  border-radius: 5px;
+  margin: 5px 10px;
+}
