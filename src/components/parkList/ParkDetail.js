@@ -38,7 +38,11 @@ function ParkDetail({ parks, user }) {
 				}
 				;
 			} catch (error) {
-				console.log(error.response.data);
+				addToast('Park Not Added! Unexpected Error Occurred.', {
+					appearance: 'error',
+					autoDismiss: true,
+					autoDismissTimeout: 1500,
+				});
 			}
 		}
 	}
@@ -57,7 +61,7 @@ function ParkDetail({ parks, user }) {
 					infiniteLoop={true}
 					stopOnHover={true}
 					transitionTime={5}
-					width={'70vw'}>
+					width={'auto'}>
 					{selectPark.images.length
 						? selectPark.images.map((image) => {
 								return (
@@ -73,7 +77,7 @@ function ParkDetail({ parks, user }) {
 				<div className='detail-container'>
 					<div className='park-container'>
 						<div className='centered'>
-							<h3 className='title'>{selectPark.parkName}</h3>
+							<h3 className='title heading'>{selectPark.parkName}</h3>
 						</div>
 						<div className='park-details'>
 							<p>{selectPark.parkDetails}</p>
@@ -81,7 +85,7 @@ function ParkDetail({ parks, user }) {
 						<div className='acts'>
 							{!selectPark.activities.length ? (
 								<div>
-									<h3>Activities:</h3>
+									<h3 className='heading'>Activities:</h3>
 									<div className='activities'>
 										<p className='activity-item'>No Activities Listed</p>
 									</div>
@@ -102,10 +106,11 @@ function ParkDetail({ parks, user }) {
 							{currentUser === undefined ? (
 								''
 							) : (
-								<div className='buttons'>
+								<div className='buttons details-div'>
 									<button onClick={setWantToSee} className='btn see'>
-										WANT TO SEE ⛰
+										Add to My ParkPass⛰
 									</button>
+									<h4 className='explorers'>{selectPark.users.length} Explorers</h4>
 								</div>
 							)}
 						</div>

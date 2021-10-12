@@ -21,9 +21,7 @@ function UserForm({ user, setUser }) {
 		
 
 		try {
-			console.log(newUser);
 			let addUser = { ...newUser };
-			console.log(addUser);
 			const addUserURL = `https://fast-springs-20221.herokuapp.com/users/signup`;
 			let res = await axios.post(addUserURL, addUser);
 			if (res) {
@@ -34,7 +32,11 @@ function UserForm({ user, setUser }) {
 				});
 			}
 		} catch (error) {
-			console.log(error);
+			addToast('Unexpected Error! Try Again. 🏔', {
+					appearance: 'error',
+					autoDismiss: true,
+					autoDismissTimeout: 1500,
+				});
 		}
 		history.push('login')
 	}

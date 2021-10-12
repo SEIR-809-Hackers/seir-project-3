@@ -188,7 +188,6 @@ input {
 	position: relative;
 	text-align: center;
 	color: #1b4b22;
-	
 }
 
 .slide-img {
@@ -216,7 +215,11 @@ input {
 	background-size: cover;
 	/* opacity: 0.1; */
 }
-
+.explorers {
+	font-size: 24px;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
 .hiked,
 .see {
 	margin: 5px;
@@ -224,7 +227,7 @@ input {
 }
 
 .see {
-	background-color: #5f9c64;
+	background-color: #30474e;
 }
 
 .centered {
@@ -245,7 +248,7 @@ input {
 	text-align: left;
 	grid-column: 2 / span 2;
 	grid-row: 1 / span 2;
-	background-color: #073a25;
+	background-color: #5f9c64;
 	color: white;
 	padding: 20px;
 	border-radius: 20px;
@@ -266,17 +269,26 @@ input {
 	height: 45vh;
 	/* height: 100%; */
 	overflow: scroll;
-	background-color: #073a25;
-	border: 2px solid #295c58;
+	/* background-color: #073a25; */
+	background-color: #5f9c64;
 	border-radius: 10px;
 	text-align: center;
 }
 .activity-item {
+	font-weight: bold;
 	color: #ffffff;
 }
 
+.details-div {
+	grid-template-columns: 2 / span 1;
+	grid-template-rows: 2 / span 1;
+}
+
+
+
 h3 {
 	background-color: #5f9c64;
+	/* background-color: #073a25; */
 	padding: 10px;
 	border-radius: 20px;
 	color: white;
@@ -300,6 +312,11 @@ h3 {
 .park-list h2:hover {
 	font-size: 15px;
 	color: #7fc8a9;
+}
+
+.map-image {
+	height: 100%;
+	width:100%;
 }
 
 /* Park Pass */
@@ -331,6 +348,10 @@ h3 > a {
 	font-size: 20px;
 	background-color: #193d1e;
 	margin-bottom: 5px;
+}
+.heading {
+	background-color: #073a25;
+	
 }
 
 @media (max-width: 800px) {
@@ -385,16 +406,16 @@ h3 > a {
 
 	.activities {
 		width: 100%;
-		height: 30vh;
+		height: 20vh;
 		max-height: fit-content;
-		color: #5f7a61;
+		color: white;
 		overflow: scroll;
 		border: 2px solid #5f7a61;
 		border-radius: 10px;
 		text-align: center;
 	}
 	.activity-item {
-		color: #5f7a61;
+		color: #fdfffd;
 	}
 
 	h3 {
@@ -404,6 +425,12 @@ h3 > a {
 	}
 
 	.slide-img {
-		width: 100vw;
+		width: auto;
 	}
+
+	.heading {
+	background-color: #073a25;
+	
+	}
+
 }
