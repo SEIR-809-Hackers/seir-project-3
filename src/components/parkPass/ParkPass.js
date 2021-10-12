@@ -6,13 +6,17 @@ import { DataContext } from '../../DataContext';
 function ParkPass() {
     const { currentUser, setCurrentUser } = useContext(DataContext);
     
-    return (
-        <div>
-            <h1>Hello</h1>
-            <h2>{currentUser.username}</h2>
-            <ParkPassList />
-        </div>
-    );
+    if (currentUser) {
+        return (
+					<div>
+						<h1>Hello</h1>
+						<h2>{currentUser.username}</h2>
+						<ParkPassList />
+					</div>
+				);
+
+    }
+    
 }
 
 export default ParkPass;

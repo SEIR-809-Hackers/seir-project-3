@@ -21,19 +21,14 @@ function SignIn() {
 		event.preventDefault();
 		// send user document to backend
 		try {
-			console.log(user);
 			const signInURL = `https://fast-springs-20221.herokuapp.com/users/signin`;
 			let res = await axios.post(signInURL, user);
-			// save to local stroge
-			localStorage.setItem('token', JSON.stringify(res.data.token));
-			//Access Local Token
-			// JSON.parse(localStorage.getItem('token')
-			localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
-			setCurrentUser(user);
 			setLoginStatus(true);
+			localStorage.setItem('token', JSON.stringify(res.data.token));
+			localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
 			let login = await axios.get(`https://fast-springs-20221.herokuapp.com/users/getByUsername/${user.username}`)
-			console.log(login.data)
 			setCurrentUser(login.data)
+			localStorage.setItem('user', JSON.stringify(login.data));
 			// console.log(logIn);
 			history.push('/parks');
 		} catch (error) {

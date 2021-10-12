@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { DataContext } from '../../DataContext';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import noParks from '../../assets/no-parks.jpg'
 
 function ParkDetail({ parks, user }) {
 	const { currentUser, setCurrentUser } = useContext(DataContext);
@@ -73,12 +74,6 @@ function ParkDetail({ parks, user }) {
 	 return (
 			<div>
 				<div className='container'>
-					{/* <img
-						className='park-image'
-						src={`${selectPark.images[0].url}`}
-						alt='trees'
-						style={{ width: '100%' }}
-					/> */}
 					<Carousel
 						showArrows={true}
 						autoPlay={true}
@@ -105,20 +100,15 @@ function ParkDetail({ parks, user }) {
 							<div className='park-details'>
 								<p>{selectPark.parkDetails}</p>
 							</div>
-
-							<div>
-								{currentUser === [] ? (
-									''
-								) : (
-									<div className='buttons'>
-										<button onClick={setWantToSee} className='btn see'>
-											WANT TO SEE ⛰
-										</button>
-									</div>
-								)}
-							</div>
 							<div className='acts'>
-								{!selectPark.activities.length ? null : (
+								{!selectPark.activities.length ? (
+									<div>
+										<h3>Activities:</h3>
+										<div className='activities'>
+											<p className='activity-item'>No Activities Listed</p>
+										</div>
+									</div>
+								) : (
 									<div className='act-main'>
 										<h3>Activities:</h3>
 
@@ -127,6 +117,17 @@ function ParkDetail({ parks, user }) {
 												<p className='activity-item'>{act.name}</p>
 											))}
 										</div>
+									</div>
+								)}
+							</div>
+							<div>
+								{currentUser === [] ? (
+									''
+								) : (
+									<div className='buttons'>
+										<button onClick={setWantToSee} className='btn see'>
+											WANT TO SEE ⛰
+										</button>
 									</div>
 								)}
 							</div>

@@ -8,13 +8,19 @@ import noParks from '../../assets/no-parks.jpg'
 
 function ParkPassItem({user}) {
 	const { currentUser, setCurrentUser } = useContext(DataContext);
-    let parks = currentUser.myParks
+    let parks;
+	if (currentUser) {
+		parks = currentUser.myParks;
+	}
 
-	if (parks.length < 1) {
+	if (currentUser && parks.length < 1) {
 		return (
 			<div>
 				<div className='no-parks-image'>
-					<h3>Add Parks To Get Started!</h3>
+					<h3>
+						<Link to='/parks'>Add Parks To Get Started!</Link>
+					</h3>
+
 					<img className='no-parks' src={noParks}></img>
 				</div>
 			</div>
@@ -25,7 +31,7 @@ function ParkPassItem({user}) {
     return (
 			<MainList>
 				{parks.map((select) => (
-					<Link to='/parks'
+					<Link 
 						to={'/parks/' + select.park._id}
 						style={{ textDecoration: 'none' }}>
 						<p>{select.park.parkName}</p>
