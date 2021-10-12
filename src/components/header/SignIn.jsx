@@ -1,21 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
-import MainForm from '../styles/form';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 import { DataContext } from '../../DataContext';
 import adventure from '../../assets/adventure.png';
 import femAvatar from '../../assets/femAvatar.png';
+import {useToasts} from 'react-toast-notifications'
 
 function SignIn() {
 	let history = useHistory();
-	const { currentUser, setCurrentUser } = useContext(DataContext);
+	const { setCurrentUser } = useContext(DataContext);
 	const { loginStatus, setLoginStatus } = useContext(DataContext);
 	const [user, setUser] = useState({
 		username: '',
 		password: '',
 	});
+	const { addToast } = useToasts();
 
 	async function handleSubmit(event) {
 		event.preventDefault();
@@ -23,16 +24,23 @@ function SignIn() {
 		try {
 			const signInURL = `https://fast-springs-20221.herokuapp.com/users/signin`;
 			let res = await axios.post(signInURL, user);
-			setLoginStatus(true);
-			localStorage.setItem('token', JSON.stringify(res.data.token));
-			localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
-			let login = await axios.get(`https://fast-springs-20221.herokuapp.com/users/getByUsername/${user.username}`)
-			setCurrentUser(login.data)
-			localStorage.setItem('user', JSON.stringify(login.data));
-			// console.log(logIn);
-			history.push('/parks');
+			if (res.status === 200) {
+				setLoginStatus(true);
+				localStorage.setItem('token', JSON.stringify(res.data.token));
+				localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
+				let login = await axios.get(`https://fast-springs-20221.herokuapp.com/users/getByUsername/${user.username}`)
+				setCurrentUser(login.data)
+				localStorage.setItem('user', JSON.stringify(login.data));
+				addToast('Successfully Signed In!', {appearance: 'success',autoDismiss: true,autoDismissTimeout: 1500})
+				history.push('/parks');
+			}
+			else {
+				
+			}
+			
 		} catch (error) {
 			console.log(error);
+			addToast('User Not Found.', {appearance: 'warning',autoDismiss: true, autoDismissTimeout: 1500})
 		}
 	}
 
@@ -45,15 +53,12 @@ function SignIn() {
 	return (
 		<div className='user-form'>
 			<div className='form-message'>
-				<img className='form-image left' src={adventure}></img>
+				<img alt='girl walking towards woods' className='form-image left' src={adventure}></img>
 			</div>
 			<div className='container'>
 				<h3 className='main-message'>Continue The Adventure</h3>
-				<img src={femAvatar} className='form-image avatar'></img>
+				<img alt='avatar of women' src={femAvatar} className='form-image avatar'></img>
 				<form onSubmit={handleSubmit} className='form-body'>
-					{/* <label>
-						<strong>Username:</strong>
-					</label> */}
 					<input
 						required
 						placeholder='username'
@@ -61,9 +66,6 @@ function SignIn() {
 						id='username'
 						onChange={handleChange}
 					/>
-					{/* <label>
-						<strong>Password:</strong>
-					</label> */}
 					<input
 						required
 						placeholder='password'

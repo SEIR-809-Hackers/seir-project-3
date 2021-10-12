@@ -6,19 +6,47 @@ import './ParkPass.css';
 import hiked from '../../assets/hikedstamp.png';
 import nothiked from '../../assets/NotHiked.png';
 import noParks from '../../assets/no-parks.jpg';
+import {useToasts} from 'react-toast-notifications'
 
 function ParkPassItem({ user }) {
-	const { currentUser, setCurrentUser } = useContext(DataContext);
+	const { currentUser, updateParks } = useContext(DataContext);
+	const { addToast } = useToasts();
 	let parks;
-	let displayImage;
 	if (currentUser) {
 		parks = currentUser.myParks;
-		// displayImage = currentUser.myParks.images[0].url;
+	}
+
+	async function deletePark(event) {
+		event.preventDefault()
+		const id = event.target.attributes.park.value;
+		const userId = currentUser._id;
+		const deleteUrl = `https://fast-springs-20221.herokuapp.com/parks/deletePark/${id}/users/${userId}`
+		try {
+			console.log(localStorage.getItem('token'));
+			const res = await fetch(deleteUrl, {
+				'Content-Type': 'application/json',
+				method: 'DELETE',
+				headers: {
+					Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+				},
+			});
+			console.log(res)
+			updateParks(event)
+			addToast('Park Deleted! 😢', {
+				appearance: 'success',
+				autoDismiss: true,
+				autoDismissTimeout: 3000,
+			});
+		} catch (error) {
+			console.log(error.response.data);
+		}
+		
 	}
 
 	async function setHiked(event) {
 		if (currentUser) {
-			const id = event.target.park;
+			console.log(event)
+			const id = event.target.attributes.park.value;
 			const userId = currentUser._id;
 			let seenUrl = `https://fast-springs-20221.herokuapp.com/parks/parksSeen/${id}/users/${userId}`;
 			event.preventDefault();
@@ -36,6 +64,7 @@ function ParkPassItem({ user }) {
 					},
 				});
 				console.log(res);
+				updateParks(event);
 			} catch (error) {
 				console.log(error.response.data);
 			}
@@ -50,7 +79,7 @@ function ParkPassItem({ user }) {
 						<Link to='/parks'>Add Parks To Get Started!</Link>
 					</h3>
 
-					<img className='no-parks' src={noParks}></img>
+					<img className='no-parks' alt='noParks' src={noParks}></img>
 				</div>
 			</div>
 		);
@@ -65,19 +94,32 @@ function ParkPassItem({ user }) {
 						to={'/parks/' + select.park._id}
 						style={{ textDecoration: 'none', color: 'white' }}>
 						<div className='each-park'>
-							<button className='delete-park'>❌</button>
+							<button
+								onClick={deletePark}
+								park={select.park._id}
+								className='delete-park'>
+								❌
+							</button>
 							<h4>{select.park.parkName}</h4>
 							{select.seen ? (
-								<img className='stamp' src={hiked} />
+								<img alt='hiked stamp' className='stamp' src={hiked} />
 							) : (
-								<img src={nothiked} className='stamp' />
+								<img alt='not hiked stamp' src={nothiked} className='stamp' />
 							)}
-							{/* <div className='img-container container'>
-								<img
-									className='park-preview'
-									src={select.park.images[0].url}></img>
-							</div> */}
-							<button park={select.park._id} onClick={setHiked}className='btn hiked'>Hiked</button>
+							{!select.seen ? (
+								<button
+									park={select.park._id}
+									onClick={setHiked}
+									className='btn hiked'>
+									Hiked
+								</button>
+							) : (
+								<button
+									park={select.park._id}
+									className='btn hiked'>
+									Done
+								</button>
+							)}
 						</div>
 					</Link>
 				))

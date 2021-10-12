@@ -4,13 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router} from 'react-router-dom'
-// import GlobalStyle from './utils/GlobalStyle';
+import {ToastProvider} from 'react-toast-notifications'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      {/* <GlobalStyle /> */}
-    <App />
+      <ToastProvider>
+        <App />
+    </ToastProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

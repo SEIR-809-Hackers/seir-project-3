@@ -2,19 +2,23 @@
 
 .welcome {
 	display: flex;
-  flex-direction: row;
-  border-bottom: 1px solid #308a63;
-  border-radius: 5px;
-  margin: 0 auto;
-  width: 90%;
+	flex-direction: row;
+	border-bottom: 1px solid #308a63;
+	border-radius: 5px;
+	margin: 0 auto;
+	width: 90%;
 }
 
 .welcome h2 {
 	margin-top: 40px;
 	margin-left: 5px;
-  font-size: 20px;
-  color:#a8d3c0;
-  font-weight: light;
+	font-size: 20px;
+	color: #a8d3c0;
+	font-weight: light;
+}
+.hiked-number {
+	margin-left: 170px;
+	margin-top: 22px;
 }
 
 .hiking {
@@ -34,15 +38,15 @@
 	width: 90%;
 	font-family: 'Roboto', sans-serif;
 	border-bottom: 0.5px solid white;
-  background-color: #308a63;
+	background-color: #308a63;
 	/* border-bottom: 2px solid #308a63; */
 	padding: 30px 10px;
 	border-radius: 20px;
 }
 
 .each-park:hover {
-  transform: scale(1.05);
-  transition: 1s;
+	transform: scale(1.05);
+	transition: 1s;
 }
 .each-park p {
 	margin: 0 auto;
@@ -50,11 +54,11 @@
 
 .divide {
 	display: flex;
-  flex-direction: column;
+	flex-direction: column;
 	justify-content: center;
 	/* margin-left: 20px; */
-  margin: 0 auto;
-  width: 90%;
+	margin: 0 auto;
+	width: 90%;
 }
 
 h4 {
@@ -69,14 +73,14 @@ h4 {
 	border-right: 1px white dashed;
 }
 .park-preview {
-  width:20%;
-  height: 100%;
-  border-radius:10px;
+	width: 20%;
+	height: 100%;
+	border-radius: 10px;
 }
 
 .img-container {
-  width:max-content;
-  justify-content: right;
+	width: max-content;
+	justify-content: right;
 }
 
 .delete-park {

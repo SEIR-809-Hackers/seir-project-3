@@ -10,17 +10,6 @@ function Home(props) {
 						<button className='btn'>Explore</button>
 					</Link>
 				</div>
-				<div className='intro'>
-					<div>
-						Join The Club
-					</div>
-					<div>
-						Find Parks
-					</div>
-					<div>
-						Plan Your Trip
-					</div>
-				</div>
 			</div>
 		);
 }
