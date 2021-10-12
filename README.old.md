@@ -1,6 +1,7 @@
 # seir-project-3
 
 a) Description:
+
 ParkPass is a full-stack application that allows a user to search through a database of national parks and save them. When saved, a park will be added to a user’s page and displayed as a card. Users can then check off if they’ve hiked at the selected park and add a review of their experience, which can be created, edited, and deleted. 
 
 
@@ -42,14 +43,13 @@ d) List of Technologies Used:
       -bootstrap 
     -JavaScript 
     -CSS
-    -MongoDB
-    -Postman
+    
 
 e) Installation Instructions / Getting Started:
 
    Navigate to url.
-Click ‘Explore’.
-Click any park listed in scroll box on left panel.
+   Click ‘Explore’.
+   Click any park listed in scroll box on left panel.
 
 f) Contribution Guidelines:
   Please visit our GitHub page at : https://github.com/SEIR-809-Hackers/seir-project-3
