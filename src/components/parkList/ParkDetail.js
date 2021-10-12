@@ -13,41 +13,17 @@ import noParks from '../../assets/no-parks.jpg'
 function ParkDetail({ parks, user }) {
 	const { currentUser, setCurrentUser } = useContext(DataContext);
 	const id = useParams();
-	const userId = currentUser._id
-
+	
 	let selectPark = parks.find((park) => {
 		return id.id === park._id;
 	});
 
-	let url = `https://fast-springs-20221.herokuapp.com/parks/wantToSee/${id.id}/users/${userId}`;
-	let seenUrl = `https://fast-springs-20221.herokuapp.com/parks/parksSeen/${id.id}/users/${userId}`;
-
-	async function setHiked(event) {
-		event.preventDefault();
-		console.log(JSON.parse(localStorage.getItem('token')));
-		console.log(id.id);
-		console.log(userId);
-		try {
-			const res = await fetch(
-				seenUrl,
-				{
-					'Content-Type': 'application/json',
-					method: 'PUT',
-					headers: {
-						Authorization: `Bearer ${JSON.parse(
-							localStorage.getItem('token')
-						)}`,
-					},
-				}
-			);
-			console.log(res);
-		} catch (error) {
-			console.log(error.response.data);
-		}
-	}
 
 	async function setWantToSee(event) {
 		event.preventDefault();
+		if (currentUser) {
+			const userId = currentUser._id;
+		let url = `https://fast-springs-20221.herokuapp.com/parks/wantToSee/${id.id}/users/${userId}`;
 		try {
 			console.log(localStorage.getItem('token'));
 			const res = await fetch(
@@ -64,6 +40,7 @@ function ParkDetail({ parks, user }) {
 		} catch (error) {
 			console.log(error.response.data);
 		}
+	}
 		
 	}
 
@@ -121,7 +98,7 @@ function ParkDetail({ parks, user }) {
 								)}
 							</div>
 							<div>
-								{currentUser === [] ? (
+								{currentUser === undefined ? (
 									''
 								) : (
 									<div className='buttons'>

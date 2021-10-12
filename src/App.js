@@ -43,6 +43,10 @@ function App() {
 		}
 	}, []);
 
+	function updateParks() {
+		// 
+
+	}
 
 	return (
 		<>
