@@ -36,7 +36,7 @@ function Header() {
 								<button className='btn logout '>Parks</button>
 							</Link>
 							<Link to='/parkpass'>
-								<button className='btn logout header-item'>PassParks</button>
+								<button className='btn logout header-item'>My ParkPass</button>
 							</Link>
 							<button onClick={logOutUser} className='btn logout header-item'>
 								Log Out
