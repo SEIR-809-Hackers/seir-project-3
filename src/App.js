@@ -10,11 +10,14 @@ import { useState, useEffect } from 'react';
 import ParkPass from './components/parkPass/ParkPass';
 import axios from 'axios';
 import { DataContext } from './DataContext';
+import ParkSelect from './components/parkList/ParkSelect';
 
 function App() {
 	const [parks, setParks] = useState([]);
 	const [user, setUser] = useState(null);
-	const [loginStatus, setLoginStatus] = useState(false || localStorage.getItem('loginStatus'));
+	const [loginStatus, setLoginStatus] = useState(
+		false || localStorage.getItem('loginStatus')
+	);
 	const [currentUser, setCurrentUser] = useState([]);
 
 	useEffect(() => {
@@ -32,7 +35,7 @@ function App() {
 		}
 	}, []);
 
-	async function  updateParks(event) {
+	async function updateParks(event) {
 		event.preventDefault();
 		// send user document to backend
 		try {
@@ -44,7 +47,6 @@ function App() {
 		} catch (error) {
 			console.log(error);
 		}
-
 	}
 
 	return (
@@ -59,7 +61,7 @@ function App() {
 						loginStatus,
 						setLoginStatus,
 						parks,
-						updateParks
+						updateParks,
 					}}>
 					<Route path='/' render={() => <Header />} />
 					<Route exact path='/users/signup'>
@@ -74,6 +76,7 @@ function App() {
 							path='/parks'
 							render={() => <ParkList parks={parks} setParks={setParks} />}
 						/>
+						<Route path='/parks' exact render={() => <ParkSelect />} />
 						<Route
 							exact
 							path='/parks/:id'

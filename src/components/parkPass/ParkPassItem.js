@@ -22,7 +22,6 @@ function ParkPassItem({ user }) {
 		const userId = currentUser._id;
 		const deleteUrl = `https://fast-springs-20221.herokuapp.com/parks/deletePark/${id}/users/${userId}`
 		try {
-			console.log(localStorage.getItem('token'));
 			const res = await fetch(deleteUrl, {
 				'Content-Type': 'application/json',
 				method: 'DELETE',
@@ -30,7 +29,7 @@ function ParkPassItem({ user }) {
 					Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
 				},
 			});
-			console.log(res)
+
 			updateParks(event)
 			addToast('Park Deleted! 😢', {
 				appearance: 'success',
@@ -38,21 +37,21 @@ function ParkPassItem({ user }) {
 				autoDismissTimeout: 3000,
 			});
 		} catch (error) {
-			console.log(error.response.data);
+			addToast('Error! Request Denied. Try Again. 😢', {
+				appearance: 'error',
+				autoDismiss: true,
+				autoDismissTimeout: 3000,
+			});
 		}
 		
 	}
 
 	async function setHiked(event) {
 		if (currentUser) {
-			console.log(event)
 			const id = event.target.attributes.park.value;
 			const userId = currentUser._id;
 			let seenUrl = `https://fast-springs-20221.herokuapp.com/parks/parksSeen/${id}/users/${userId}`;
 			event.preventDefault();
-			console.log(JSON.parse(localStorage.getItem('token')));
-			console.log(id);
-			console.log(userId);
 			try {
 				const res = await fetch(seenUrl, {
 					'Content-Type': 'application/json',
@@ -63,10 +62,13 @@ function ParkPassItem({ user }) {
 						)}`,
 					},
 				});
-				console.log(res);
 				updateParks(event);
 			} catch (error) {
-				console.log(error.response.data);
+				addToast('Error! Request Denied. Try Again. 😢', {
+					appearance: 'error',
+					autoDismiss: true,
+					autoDismissTimeout: 3000,
+				});
 			}
 		}
 	}
@@ -117,7 +119,7 @@ function ParkPassItem({ user }) {
 								<button
 									park={select.park._id}
 									className='btn hiked'>
-									Done
+									View
 								</button>
 							)}
 						</div>

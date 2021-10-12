@@ -39,7 +39,6 @@ function SignIn() {
 			}
 			
 		} catch (error) {
-			console.log(error);
 			addToast('User Not Found.', {appearance: 'warning',autoDismiss: true, autoDismissTimeout: 1500})
 		}
 	}
