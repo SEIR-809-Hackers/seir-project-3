@@ -1,32 +1,21 @@
 import './App.css';
-// import { DataContext } from './DataContext';
 import Header from './components/header/Header';
 import Home from './components/Home';
 import ParkList from './components/parkList/ParkList';
 import ParkDetail from './components/parkList/ParkDetail';
-import User from './components/header/User';
 import SignIn from './components/header/SignIn';
 import UserForm from './components/header/UserForm';
-import { Route, useParams } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ParkPass from './components/parkPass/ParkPass';
 import axios from 'axios';
 import { DataContext } from './DataContext';
-//testing json
-import DataPark from './dataPark.json';
-import DataReview from './dataReview.json';
-import DataUser from './dataUser.json';
 
 function App() {
 	const [parks, setParks] = useState([]);
 	const [user, setUser] = useState(null);
 	const [loginStatus, setLoginStatus] = useState(false || localStorage.getItem('loginStatus'));
 	const [currentUser, setCurrentUser] = useState([]);
-	const [reviews, setReviews] = useState(DataReview);
-
-	function setNewUser(user) {
-		setUser({ ...user, name: user });
-	}
 
 	useEffect(() => {
 		const parkURL = 'https://fast-springs-20221.herokuapp.com/parks';
@@ -43,8 +32,18 @@ function App() {
 		}
 	}, []);
 
-	function updateParks() {
-		// 
+	async function  updateParks(event) {
+		event.preventDefault();
+		// send user document to backend
+		try {
+			let login = await axios.get(
+				`https://fast-springs-20221.herokuapp.com/users/getByUsername/${currentUser.username}`
+			);
+			setCurrentUser(login.data);
+			localStorage.setItem('user', JSON.stringify(login.data));
+		} catch (error) {
+			console.log(error);
+		}
 
 	}
 
@@ -60,11 +59,9 @@ function App() {
 						loginStatus,
 						setLoginStatus,
 						parks,
-						reviews,
-						setReviews,
+						updateParks
 					}}>
 					<Route path='/' render={() => <Header />} />
-					<User user={user} setCurrentUser={setCurrentUser} />
 					<Route exact path='/users/signup'>
 						<UserForm setUser={setUser} />
 					</Route>
@@ -82,10 +79,6 @@ function App() {
 							path='/parks/:id'
 							render={() => <ParkDetail parks={parks} user={user} />}
 						/>
-
-						{/* <Route path='/parks'>
-							<div className='no-parks'>Hello</div>
-						</Route> */}
 					</div>
 				</DataContext.Provider>
 				<Route exact path='/'>

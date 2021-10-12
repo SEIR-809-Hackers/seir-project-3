@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom'
 function ParkItem({parks}) {
     return (
 			<div className='park-list list'>
-				{parks.map((park) => (
-					<Link to={'/parks/' + park._id} style={{ textDecoration: 'none' }}>
+				{parks.map((park,id) => (
+					<Link to={'/parks/' + park._id} key={id} style={{ textDecoration: 'none' }}>
 						<h2>{park.parkName}</h2>
 					</Link>
 				))}

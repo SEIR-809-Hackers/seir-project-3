@@ -1,7 +1,5 @@
 import React from 'react';
-import User from './User';
-import {Route, Link} from 'react-router-dom'
-import MainHeader from '../styles/header';
+import {Link} from 'react-router-dom'
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom'
 import { DataContext } from '../../DataContext';
@@ -14,10 +12,6 @@ function Header() {
 
 
 	function logOutUser() {
-		// clear currentUser, and remove token from local-storage;
-		// localStorage.setItem('loginStatus', 'false');
-		// localStorage.setItem('token', '');
-		// setLoginStatus(false);
 		setCurrentUser(null);
 		setLoginStatus(false)
 		localStorage.clear();

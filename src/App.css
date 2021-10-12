@@ -188,8 +188,8 @@ input {
 	position: relative;
 	text-align: center;
 	color: #1b4b22;
+	
 }
-
 
 .slide-img {
 	object-fit: contain;
@@ -241,7 +241,7 @@ input {
 .park-details {
 	margin: 15% auto;
 	width: 90%;
-	font-size: 100%;
+	font-size: 25px;
 	text-align: left;
 	grid-column: 2 / span 2;
 	grid-row: 1 / span 2;
@@ -302,7 +302,6 @@ h3 {
 	color: #7fc8a9;
 }
 
-
 /* Park Pass */
 .no-parks {
 	height: 30%;
@@ -343,14 +342,36 @@ h3 > a {
 		width: 30%;
 	}
 
+	.user-form {
+		display: flex;
+		flex-direction: column;
+	}
+	.park-container {
+		flex-direction: column;
+	}
+
 	.title {
-		font-size: 36px;
+		font-size: 400%;
 	}
 
 	.park-details {
 		margin: 0 auto;
 		width: 50%;
-		font-size: 25px;
+		font-size: 20px;
+	}
+
+	.park-container {
+		/* margin: 20px 20px; */
+		display: flex;
+		/* grid-template-columns: 1fr;
+		grid-template-rows: 1fr; */
+		font-size: 30%;
+		height: 20%;
+		/* border: 1px solid black; */
+		padding: 20px;
+		background-image: url('./assets/detail-bg.jpg');
+		background-size: cover;
+		/* opacity: 0.1; */
 	}
 
 	.acts {
@@ -380,5 +401,9 @@ h3 > a {
 		background-color: #5f9c64;
 		padding: 10px;
 		border-radius: 20px;
+	}
+
+	.slide-img {
+		width: 100vw;
 	}
 }
