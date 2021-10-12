@@ -2,7 +2,6 @@
 
 body {
 	height: 100%;
-
 }
 
 /* Header */
@@ -58,8 +57,6 @@ nav > ul > a {
 	background-color: #5f7a61;
 	color: white;
 } */
-
-
 
 .main-page {
 	height: 100vh;
@@ -184,6 +181,7 @@ input {
 
 .parks-layout {
 	display: flex;
+	max-height: 100%;
 }
 
 .container {
@@ -192,75 +190,71 @@ input {
 	color: #1b4b22;
 }
 
-.centered {
-	/* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%); */
-	font-size: 20px;
-	/* background-color: rgba(0, 0, 0, 0.5);
-    background-size: auto; */
-}
-
-.park-details {
-	text-align: center;
-}
-
-.carousel-root {
-    /* background-color: #ddf8f6; */
-}
 
 .slide-img {
 	object-fit: contain;
 	max-height: 500px;
 	width: auto;
-    padding: 20px;
-    /* background-color: #ddf8f6; */
+	padding: 20px;
+	/* background-color: #ddf8f6; */
 }
 
 .legend {
-    background: #b5dadd;
-    color:#171818;
+	background: #b5dadd;
+	color: #171818;
 }
 
 .park-container {
-    /* margin: 20px 20px; */
-    height: 100%;
-    /* border: 1px solid black; */
-    padding: 20px;
-    background-image: url('./assets/detail-bg.jpg');
-    background-size: cover;
-    /* opacity: 0.1; */
-
+	/* margin: 20px 20px; */
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 1fr 1fr;
+	height: 20%;
+	/* border: 1px solid black; */
+	padding: 20px;
+	background-image: url('./assets/detail-bg.jpg');
+	background-size: cover;
+	/* opacity: 0.1; */
 }
 
-
-
-.hiked, .see {
-    margin: 5px;
-    font-size: 20px;
+.hiked,
+.see {
+	margin: 5px;
+	font-size: 20px;
 }
 
+.see {
+	background-color: #5f9c64;
+}
 
 .centered {
-    margin: 0 auto;
-    width: 30%;
+	grid-column: 2 / span 1;
+	grid-row: 1 / span 1;
+	margin: 0 auto;
+	width: 100%;
 }
 
 .title {
-    font-size: 36px;
+	font-size: 100%;
 }
 
 .park-details {
-    margin: 0 auto;
-    width: 50%;
-    font-size: 25px;
+	margin: 15% auto;
+	width: 90%;
+	font-size: 100%;
+	text-align: left;
+	grid-column: 2 / span 2;
+	grid-row: 1 / span 2;
+	background-color: #073a25;
+	color: white;
+	padding: 20px;
+	border-radius: 20px;
 }
-
 
 .acts {
 	display: flex;
 	justify-content: center;
+	grid-row: 1 / span 2;
 }
 
 .act-main {
@@ -269,97 +263,122 @@ input {
 
 .activities {
 	width: 100%;
-	height: 30vh;
+	height: 45vh;
+	/* height: 100%; */
 	overflow: scroll;
-    background-color: #073a25;
-	border:2px solid #295c58;
-    border-radius: 10px;
+	background-color: #073a25;
+	border: 2px solid #295c58;
+	border-radius: 10px;
 	text-align: center;
 }
 .activity-item {
-    color:#ffffff;
+	color: #ffffff;
 }
 
 h3 {
-    background-color: #5f9c64;
-    padding: 10px;
-    border-radius: 20px;
-    color:white;
+	background-color: #5f9c64;
+	padding: 10px;
+	border-radius: 20px;
+	color: white;
 }
 
-.park-list{
-	border-right: 2px solid #0f5013 ;
-  	width: 200px;
-  	height: 100vh;
-	padding:5px;
-  	overflow: scroll;
-  	background-color: rgb(255, 255, 255);
+.park-list {
+	border-right: 2px solid #0f5013;
+	width: 200px;
+	max-height: 1150px;
+	padding: 5px;
+	overflow: scroll;
+	background-color: rgb(255, 255, 255);
 }
-
 
 .park-list h2 {
-    padding: 3px 5px;
-    font-size: 15px;
-    color: #0f5013;
+	padding: 3px 5px;
+	font-size: 15px;
+	color: #0f5013;
 }
 
 .park-list h2:hover {
-    font-size: 15px;
-    color: #7FC8A9
-    ;
+	font-size: 15px;
+	color: #7fc8a9;
+}
+
+
+/* Park Pass */
+.no-parks {
+	height: 30%;
+	width: 30%;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+.no-parks-image {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	width: 50%;
+	margin-top: 50px;
+}
+.no-parks-image > h3 {
+	text-align: center;
+	text-decoration: none;
+}
+h3 > a {
+	text-decoration: none;
+	text-align: center;
+	color: white;
 }
 /* Buttons */
 .logout {
-    font-size: 20px;
-    background-color: #193d1e;
-    margin-bottom: 5px;
+	font-size: 20px;
+	background-color: #193d1e;
+	margin-bottom: 5px;
 }
 
 @media (max-width: 800px) {
 	.left {
 		display: none;
 	}
-    .centered {
-    margin: 0 auto;
-    width: 30%;
-}
+	.centered {
+		margin: 0 auto;
+		width: 30%;
+	}
 
-.title {
-    font-size: 36px;
-}
+	.title {
+		font-size: 36px;
+	}
 
-.park-details {
-    margin: 0 auto;
-    width: 50%;
-    font-size: 25px;
-}
+	.park-details {
+		margin: 0 auto;
+		width: 50%;
+		font-size: 25px;
+	}
 
+	.acts {
+		display: flex;
+		justify-content: center;
+	}
 
-.acts {
-	display: flex;
-	justify-content: center;
-}
+	.act-main {
+		text-align: center;
+	}
 
-.act-main {
-	text-align: center;
-}
+	.activities {
+		width: 100%;
+		height: 30vh;
+		max-height: fit-content;
+		color: #5f7a61;
+		overflow: scroll;
+		border: 2px solid #5f7a61;
+		border-radius: 10px;
+		text-align: center;
+	}
+	.activity-item {
+		color: #5f7a61;
+	}
 
-.activities {
-	width: 100%;
-	height: 30vh;
-    color:#5f7a61;
-	overflow: scroll;
-	border:2px solid #5f7a61;
-    border-radius: 10px;
-	text-align: center;
-}
-.activity-item {
-    color:#5f7a61;
-}
-
-h3 {
-    background-color: #5f9c64;
-    padding: 10px;
-    border-radius: 20px;
-}
+	h3 {
+		background-color: #5f9c64;
+		padding: 10px;
+		border-radius: 20px;
+	}
 }

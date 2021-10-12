@@ -7,6 +7,7 @@ import './ParkPass.css'
 
 function ParkPass() {
     const { currentUser, setCurrentUser } = useContext(DataContext);
+  
     return (
         <div className='container'>
             <div className='welcome'>
