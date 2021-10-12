@@ -12,24 +12,27 @@ You begin your park adventure by clicking the explore button, which will take yo
 
 c) List of Features / User Stories:
 
- --- MVP: 
-“As a user, I would like to be able to see a list of national parks, with a brief description on the location so I can browse the collection” 
-“As a user, I would like to be able to use my ParkPass to add parks that I would like to hike at.”
-“As a user, I would like to mark off parks I have hiked at.”
-"As a user, I would like to get a “Things To Do” List for specific things I can do at the park and add these to my own Activities list for better planning."
+--MVP: 
+* As a user, I would like to be able to see a list of national parks, with a brief description on the location so I can browse the collection. (Complete)
+* As a user, I would like to be able to use my ParkPass to add parks that I would like to hike at. (Complete)
+* As a user, I would like to mark off parks I have hiked at. (Complete)
 
 
----Bronze: 
-As a user, I would like to be able to get information on the campgrounds within the park in order to better plan my trip. 
-As a user, I would like to be able to get a list of recommended activities to do within the park (astronomy, hiking, wildlife watching, etc.) in order to better understand what type of events each destination offers. 
-“As a user, I would like to be able to provide reviews for the parks I’ve hiked.”
----Silver: 
+
+--Bronze: 
+* As a user, I would like to be able to get information on the campgrounds within the park in order to better plan my trip. 
+* As a user, I would like to be able to get a list of recommended activities to do within the park (astronomy, hiking, wildlife watching, etc.) in order to better understand what type of events each destination offers.  (Complete)
+
+--Silver: 
+* As a user, I would like to get a “Things To Do” List for specific things I can do at the park and add these to my own Activities list for better planning. 
+
+--Gold:
+* As a user, I would like to be able to log in to my own personal PassPark account so that I can have a personal profile.(complete) 
+* As a user, I would like to be able to track my miles hiked and have a graph display the data.
+* As a user, I would like to be able to see live footage of the campgrounds in order to virtually experience what it would like to be there. 
+* As a user, I would like to be able to provide reviews for the parks I’ve hiked.
 
 
----Gold:
-As a user, I would like to be able to log in to my own personal PassPark account so that I can have a personal profile. 
-As a user, I would like to be able to track my miles hiked and have a graph display the data.
-As a user, I would like to be able to see live footage of the campgrounds in order to virtually experience what it would like to be there. 
 
 
 
@@ -44,9 +47,16 @@ d) List of Technologies Used:
 
 e) Installation Instructions / Getting Started:
 
-   Navigate to url.
-   Click ‘Explore’.
-   Click any park listed in scroll box on left panel.
+   First, we install the basic backend application, then we split into two different groups, 1 with FrontEnd, the other   one with BackEnd, We organize the FrontEnd into 3 different folders of components. We also did some files  .json to     test our components and connections, then we connect it with the National Parks API & our own API. by seeding our       database.
+   
+   All data about the parks were accessed from the National Park Service (NPS) API at https://www.nps.gov/subjects/developer/api-documentation.htm, using the following: [ Base URL: developer.nps.gov/api/v1 ]
+
+
+The list of parks visible in the app were seeded used a router.get function, routing to the '/parks' endpoint of the base url list above.
+Another router.get allows us to display the parks.
+In order for users to create (generate) their own wish list of parks (ParkPass) to visit we used a router.post.
+To update the user's ParkPass we used router.patch and router.put functions.
+In order to delete parks from the ParkPass we used a router.delete function.
 
 f) Contribution Guidelines:
   Please visit our GitHub page at : https://github.com/SEIR-809-Hackers/seir-project-3
