@@ -31,16 +31,7 @@ function SignIn() {
 			localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
 			setCurrentUser(user);
 			setLoginStatus(true);
-			// console.log('Bearer ' + JSON.parse(localStorage.getItem('token')));
-			// let logIn = await axios.get(
-			// 	`https://fast-springs-20221.herokuapp.com/users/${user.username}`,
-			// 	{
-			// 		headers: {
-			// 			jwt: 'Bearer ' + JSON.parse(localStorage.getItem('token')),
-			// 		},
-			// 	}
-			// );
-			let login = await axios.get(`https://fast-springs-20221.herokuapp.com/users/${user.username}`)
+			let login = await axios.get(`https://fast-springs-20221.herokuapp.com/users/getByUsername/${user.username}`)
 			console.log(login.data)
 			setCurrentUser(login.data)
 			// console.log(logIn);

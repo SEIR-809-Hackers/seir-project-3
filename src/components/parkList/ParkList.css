@@ -1,15 +1,17 @@
 /* Park List */
 
 .park-list {
-    border-right: 2px solid #5F7A61 ;
+    border-right: 2px solid #36693a ;
   width: 200px;
-  height: 90vh;
+  height: 100%;
+  padding:5px;
   overflow: scroll;
   background-color: snow;
 }
 
 
 .park-list h2 {
+    padding: 3px 5px;
     font-size: 15px;
     color: #444941;
 }

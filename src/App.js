@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header/Header';
 import Home from './components/Home';
 import ParkList from './components/parkList/ParkList';
-import ParkDetail from './components/ParkDetail';
+import ParkDetail from './components/parkList/ParkDetail';
 import User from './components/header/User';
 import SignIn from './components/header/SignIn';
 import UserForm from './components/header/UserForm';
@@ -36,22 +36,8 @@ function App() {
 				setParks(res);
 			})
 			.catch((err) => console.log(err));
-
-		return () => {};
 	}, []);
 
-	useEffect(() => {
-		let username = currentUser.username;
-		let token = JSON.parse(localStorage.getItem('token'));
-		let config = {
-			headers: { Bearer: token },
-		};
-		const userURL =
-			'https://fast-springs-20221.herokuapp.com/users/' + username;
-		let res = axios.get(userURL, config);
-
-		setUser(res);
-	}, []);
 
 	return (
 		<>

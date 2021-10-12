@@ -24,33 +24,35 @@ function Header() {
 				<Link to='/' style={{ textDecoration: 'none' }}>
 					<h1>ParkPass</h1>
 				</Link>
-				{
-					loginStatus ? 
+				{loginStatus ? (
 					<nav>
 						<ul className='header-list'>
 							<Link to='/parks'>
-								<li>Parks</li>
+								<button className='btn logout '>Parks</button>
 							</Link>
 							<Link to='/parkpass'>
-								<li className='header-item'>PassParks</li>
+								<button className='btn logout header-item'>PassParks</button>
 							</Link>
-								<button onClick={logOutUser}className='header-item'>Log Out</button>
+							<button onClick={logOutUser} className='btn logout header-item'>
+								Log Out
+							</button>
 						</ul>
-					</nav> :
+					</nav>
+				) : (
 					<nav>
 						<ul className='header-list'>
 							<Link to='/parks'>
-								<li>Parks</li>
+								<button className='btn logout header-item'>Parks</button>
 							</Link>
 							<Link to='/users/login'>
-								<li className='header-item'>Login</li>
+								<button className='btn logout header-item'>Login</button>
 							</Link>
 							<Link to='/users/signup'>
-								<li className='header-item'>Sign Up</li>
+								<button className='btn logout header-item'>Sign Up</button>
 							</Link>
 						</ul>
 					</nav>
-				}
+				)}
 			</header>
 		);
 }
