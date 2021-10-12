@@ -19,7 +19,7 @@ import DataUser from './dataUser.json';
 
 function App() {
 	const [parks, setParks] = useState([]);
-	const [user, setUser] = useState([]);
+	const [user, setUser] = useState(null);
 	const [loginStatus, setLoginStatus] = useState(false || localStorage.getItem('loginStatus'));
 	const [currentUser, setCurrentUser] = useState([]);
 	const [reviews, setReviews] = useState(DataReview);
@@ -36,6 +36,11 @@ function App() {
 				setParks(res);
 			})
 			.catch((err) => console.log(err));
+		const loggedInUser = localStorage.getItem('user');
+		if (loggedInUser) {
+			const foundUser = JSON.parse(loggedInUser);
+			setCurrentUser(foundUser);
+		}
 	}, []);
 
 
@@ -73,6 +78,10 @@ function App() {
 							path='/parks/:id'
 							render={() => <ParkDetail parks={parks} user={user} />}
 						/>
+
+						{/* <Route path='/parks'>
+							<div className='no-parks'>Hello</div>
+						</Route> */}
 					</div>
 				</DataContext.Provider>
 				<Route exact path='/'>

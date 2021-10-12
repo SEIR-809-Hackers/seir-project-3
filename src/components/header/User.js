@@ -11,16 +11,13 @@ function User({ user, setUser }) {
 	
 	return (
 		<MainUser>
-			{/* {user.map((user) => (
-				<p>{user.name}</p>
-			))} */}
-			{!user.length ? (
+			{/* {!user.length ? (
 				<div classname='forms'>
 					
 				</div>
 			) : (
 				<h1>hello</h1>
-			)}
+			)} */}
 		</MainUser>
 	);
 }

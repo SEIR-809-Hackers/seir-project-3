@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 import { DataContext } from '../../DataContext';
 
 function Header() {
+	let history = useHistory()
 	
 	const { setCurrentUser } = useContext(DataContext); 
 	const {loginStatus, setLoginStatus} = useContext(DataContext)
@@ -14,9 +15,13 @@ function Header() {
 
 	function logOutUser() {
 		// clear currentUser, and remove token from local-storage;
-		localStorage.setItem('loginStatus', 'false');
-		localStorage.setItem('token', '');
-		setLoginStatus(false);
+		// localStorage.setItem('loginStatus', 'false');
+		// localStorage.setItem('token', '');
+		// setLoginStatus(false);
+		setCurrentUser(null);
+		setLoginStatus(false)
+		localStorage.clear();
+		history.push('/users/login')
 	}
 
     return (
