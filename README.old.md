@@ -7,7 +7,7 @@ ParkPass is a full-stack application that allows a user to search through a data
 
 b) Brief Example:
 
-Click any of the navigation buttons on the app to find a list of parks, or sign up to create your own list of parks you’ve already visited.
+You begin your park adventure by clicking the explore button, which will take you to a list of natural parks in the US, you can click a Park from the list and add it to your personal pass, but in order to do this, you need first to sign up, of course in the “sing up button” and then login. Then in your “My Park Pass” can see your parks, and click if you have haiked, and you can also delete a park from your Pass.
 
 
 c) List of Features / User Stories:
@@ -16,15 +16,15 @@ c) List of Features / User Stories:
 “As a user, I would like to be able to see a list of national parks, with a brief description on the location so I can browse the collection” 
 “As a user, I would like to be able to use my ParkPass to add parks that I would like to hike at.”
 “As a user, I would like to mark off parks I have hiked at.”
-“As a user, I would like to be able to provide reviews for the parks I’ve hiked.”
+"As a user, I would like to get a “Things To Do” List for specific things I can do at the park and add these to my own Activities list for better planning."
 
 
 ---Bronze: 
 As a user, I would like to be able to get information on the campgrounds within the park in order to better plan my trip. 
 As a user, I would like to be able to get a list of recommended activities to do within the park (astronomy, hiking, wildlife watching, etc.) in order to better understand what type of events each destination offers. 
-
+“As a user, I would like to be able to provide reviews for the parks I’ve hiked.”
 ---Silver: 
-As a user, I would like to get a “Things To Do” List for specific things I can do at the park and add these to my own Activities list for better planning. 
+
 
 ---Gold:
 As a user, I would like to be able to log in to my own personal PassPark account so that I can have a personal profile. 
@@ -35,14 +35,11 @@ As a user, I would like to be able to see live footage of the campgrounds in ord
 
 d) List of Technologies Used:
     -React
-      -Route
-      -useState
-      -useParams
-      -useEfect
-      -axios
-      -bootstrap 
+    -bootstrap
+    -Toast Notifications 
     -JavaScript 
     -CSS
+    -HTML
     
 
 e) Installation Instructions / Getting Started:
