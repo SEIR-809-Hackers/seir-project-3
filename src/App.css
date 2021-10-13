@@ -262,7 +262,7 @@ input {
 
 .act-main {
 	text-align: center;
-	height:fit-content;
+	height: fit-content;
 }
 
 .act-main > h3 {
@@ -294,9 +294,9 @@ input {
 
 .park-location {
 	background-color: #c5e4cf;
-	padding:7px;
+	padding: 7px;
 	border-radius: 10px;
-	color:rgb(122, 96, 40);
+	color: rgb(122, 96, 40);
 	text-align: center;
 	font-size: 80%;
 }
@@ -380,21 +380,21 @@ h3 > a {
 	font-size: 24px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 	.header {
 		width: fit-content;
 	}
 	nav {
 		background-color: #193d1e;
 		width: 200%;
-		width:fit-content;
+		width: fit-content;
 	}
 	.left {
 		display: none;
 	}
 	.centered {
 		margin: 0 auto;
-		width: 30%;
+		width: 100%;
 	}
 
 	.user-form {
@@ -462,7 +462,7 @@ h3 > a {
 	}
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 	.header {
 		width: 150vw;
 	}
