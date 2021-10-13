@@ -166,11 +166,7 @@ input {
 
 .login-btn {
 	font-size: 1rem;
-	/* margin: 0 50%; */
 	background-color: #5f9c64;
-	/* margin: 20px; */
-	width: 100%;
-	/* justify-self: end; */
 	margin-left: 20%;
 }
 
