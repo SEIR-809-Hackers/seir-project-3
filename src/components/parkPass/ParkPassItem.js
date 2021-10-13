@@ -7,13 +7,18 @@ import hiked from '../../assets/hikedstamp.png';
 import nothiked from '../../assets/NotHiked.png';
 import noParks from '../../assets/no-parks.jpg';
 import {useToasts} from 'react-toast-notifications'
+import hiking from '../../assets/9831.jpg';
 
 function ParkPassItem({ user }) {
 	const { currentUser, updateParks } = useContext(DataContext);
 	const { addToast } = useToasts();
 	let parks;
+	let hikedParks;
 	if (currentUser) {
 		parks = currentUser.myParks;
+		hikedParks = currentUser.myParks.filter((park) => {
+			return park.seen === true;
+		});
 	}
 
 	async function deletePark(event) {
@@ -22,7 +27,7 @@ function ParkPassItem({ user }) {
 		const userId = currentUser._id;
 		const deleteUrl = `https://fast-springs-20221.herokuapp.com/parks/deletePark/${id}/users/${userId}`
 		try {
-			const res = await fetch(deleteUrl, {
+			await fetch(deleteUrl, {
 				'Content-Type': 'application/json',
 				method: 'DELETE',
 				headers: {
@@ -53,7 +58,7 @@ function ParkPassItem({ user }) {
 			let seenUrl = `https://fast-springs-20221.herokuapp.com/parks/parksSeen/${id}/users/${userId}`;
 			event.preventDefault();
 			try {
-				const res = await fetch(seenUrl, {
+			 	await fetch(seenUrl, {
 					'Content-Type': 'application/json',
 					method: 'PUT',
 					headers: {
@@ -73,7 +78,7 @@ function ParkPassItem({ user }) {
 		}
 	}
 
-	if (currentUser && parks === []) {
+	if (parks.length < 1) {
 		return (
 			<div>
 				<div className='no-parks-image'>
@@ -88,46 +93,77 @@ function ParkPassItem({ user }) {
 	}
 
 	return (
-		<div className='list-select-parks'>
-			<h2>My Parks:</h2>
-			{parks !== undefined ? (
+		<div>
+			<div className='container'>
+				<div className='divide'>
+					<h3>Get Hiking!</h3>
+					<img className='hiking' src={hiking} alt='People Hiking'></img>
+				</div>
+				<div className='welcome'>
+					<h2>{currentUser.username}'s Parks: </h2>
+					{currentUser ? (
+						<div className='hiked-number'>
+							<p className='hiked-number'>
+								Parks Hiked: {hikedParks.length}/{currentUser.myParks.length}
+							</p>
+						</div>
+					) : <div></div>}
+				</div>
+				{/* <ParkPassList /> */}
+			</div>
+			
+			{currentUser && parks !== undefined ? (
 				parks.map((select) => (
 					<Link
 						to={'/parks/' + select.park._id}
 						style={{ textDecoration: 'none', color: 'white' }}>
-						<div className='each-park'>
-							<button
-								onClick={deletePark}
-								park={select.park._id}
-								className='delete-park'>
-								❌
-							</button>
-							<h4>{select.park.parkName}</h4>
-							{select.seen ? (
-								<img alt='hiked stamp' className='stamp' src={hiked} />
-							) : (
-								<img alt='not hiked stamp' src={nothiked} className='stamp' />
-							)}
-							{!select.seen ? (
-								<button
-									park={select.park._id}
-									onClick={setHiked}
-									className='btn hiked'>
-									Hiked
-								</button>
-							) : (
-								<button
-									park={select.park._id}
-									className='btn hiked'>
-									View
-								</button>
-							)}
+						<div className='ticket-container'>
+							<div className='image-container'>
+								<h2>{select.park.parkName}</h2>
+							</div>
+							<div className='ticket-info'>
+								<div className='location'>
+									<p>📍 {select.park.parkLocation}</p>
+								</div>
+								<div className='hiked'>
+									{select.seen ? (
+										<img alt='hiked stamp' className='stamp' src={hiked} />
+									) : (
+										<img
+											alt='not hiked stamp'
+											src={nothiked}
+											className='stamp'
+										/>
+									)}
+								</div>
+								<div className='park-btn'>
+									{!select.seen ? (
+										<button
+											park={select.park._id}
+											onClick={setHiked}
+											className='btn hiked-btn'>
+											Hiked
+										</button>
+									) : (
+										<button park={select.park._id} className='btn hiked-btn'>
+											View
+										</button>
+									)}
+									<button
+										onClick={deletePark}
+										park={select.park._id}
+										className='delete btn'>
+										Delete
+									</button>
+								</div>
+							</div>
 						</div>
 					</Link>
 				))
 			) : (
-				<h2>Add Parks</h2>
+				<div></div>
 			)}
+			;
 		</div>
 	);
 }

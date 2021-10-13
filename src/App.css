@@ -12,6 +12,7 @@ header {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;
+	width: 100vw;
 }
 
 h1 {
@@ -20,7 +21,7 @@ h1 {
 	/* font-family: 'Montserrat', sans-serif; */
 	font-family: 'Roboto', sans-serif;
 	font-weight: 900;
-	color: #4d9157;
+	color: #5f9e68;
 	margin-bottom: 0;
 	margin-left: 5px;
 	z-index: 1;
@@ -29,6 +30,7 @@ h1 {
 nav {
 	grid-row: 1 / span 1;
 	grid-column: 2 / span 1;
+	/* width:100vw; */
 }
 
 nav > ul {
@@ -188,6 +190,7 @@ input {
 	position: relative;
 	text-align: center;
 	color: #1b4b22;
+	height: fit-content;
 }
 
 .slide-img {
@@ -195,7 +198,6 @@ input {
 	max-height: 500px;
 	width: auto;
 	padding: 20px;
-	/* background-color: #ddf8f6; */
 }
 
 .legend {
@@ -204,10 +206,10 @@ input {
 }
 
 .park-container {
-	/* margin: 20px 20px; */
+	border-top: 5px solid rgb(11, 61, 44);
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: 1fr 3fr;
 	height: 20%;
 	/* border: 1px solid black; */
 	padding: 20px;
@@ -217,7 +219,7 @@ input {
 }
 .explorers {
 	font-size: 24px;
-	color: white;
+	color: #30474e;
 	font-family: 'Roboto', sans-serif;
 }
 .hiked,
@@ -227,7 +229,7 @@ input {
 }
 
 .see {
-	background-color: #30474e;
+	background-color: #bb7546;
 }
 
 .centered {
@@ -238,41 +240,49 @@ input {
 }
 
 .title {
-	font-size: 100%;
+	font-size: 200%;
 }
 
 .park-details {
-	margin: 15% auto;
+	margin: 30% auto 0;
 	width: 90%;
 	font-size: 25px;
 	text-align: left;
 	grid-column: 2 / span 2;
 	grid-row: 1 / span 2;
-	background-color: #5f9c64;
+	background-color: #39663e;
+	/* border: 2px solid #5f9c64; */
 	color: white;
 	padding: 20px;
-	border-radius: 20px;
+	border-radius: 10px;
+	box-shadow: 10px 5px rgba(39, 38, 38, 0.534);
 }
 
 .acts {
 	display: flex;
 	justify-content: center;
-	grid-row: 1 / span 2;
+	grid-row: 2 / span 1;
 }
 
 .act-main {
 	text-align: center;
+	height:fit-content;
+}
+
+.act-main > h3 {
+	background-color: #093116;
 }
 
 .activities {
-	width: 100%;
-	height: 45vh;
+	width: 20vw;
+	height: 30vh;
 	/* height: 100%; */
 	overflow: scroll;
 	/* background-color: #073a25; */
 	background-color: #5f9c64;
 	border-radius: 10px;
 	text-align: center;
+	box-shadow: 10px 5px rgba(39, 38, 38, 0.534);
 }
 .activity-item {
 	font-weight: bold;
@@ -280,11 +290,20 @@ input {
 }
 
 .details-div {
-	grid-template-columns: 2 / span 1;
-	grid-template-rows: 2 / span 1;
+	margin-top: 10px;
+	margin-bottom: 0;
+	grid-template-columns: 1 / span 1;
+	grid-template-rows: 1 / span 2;
 }
 
-
+.park-location {
+	background-color: #c5e4cf;
+	padding:7px;
+	border-radius: 10px;
+	color:rgb(122, 96, 40);
+	text-align: center;
+	font-size: 80%;
+}
 
 h3 {
 	background-color: #5f9c64;
@@ -297,7 +316,7 @@ h3 {
 .park-list {
 	border-right: 2px solid #0f5013;
 	width: 200px;
-	max-height: 1150px;
+	max-height: 1305px;
 	padding: 5px;
 	overflow: scroll;
 	background-color: rgb(255, 255, 255);
@@ -316,7 +335,7 @@ h3 {
 
 .map-image {
 	height: 100%;
-	width:100%;
+	width: 100%;
 }
 
 /* Park Pass */
@@ -351,10 +370,29 @@ h3 > a {
 }
 .heading {
 	background-color: #073a25;
-	
 }
 
-@media (max-width: 800px) {
+.welcome {
+	display: flex;
+	justify-content: space-between;
+}
+
+.hiked-number > p {
+	color: #5f9c64;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+}
+
+@media (max-width: 600px) {
+	.header {
+		width: fit-content;
+	}
+	nav {
+		background-color: #193d1e;
+		width: 200%;
+		width:fit-content;
+	}
 	.left {
 		display: none;
 	}
@@ -382,17 +420,12 @@ h3 > a {
 	}
 
 	.park-container {
-		/* margin: 20px 20px; */
 		display: flex;
-		/* grid-template-columns: 1fr;
-		grid-template-rows: 1fr; */
 		font-size: 30%;
 		height: 20%;
-		/* border: 1px solid black; */
 		padding: 20px;
 		background-image: url('./assets/detail-bg.jpg');
 		background-size: cover;
-		/* opacity: 0.1; */
 	}
 
 	.acts {
@@ -425,12 +458,20 @@ h3 > a {
 	}
 
 	.slide-img {
-		width: auto;
+		width: 70vh;
 	}
 
 	.heading {
-	background-color: #073a25;
-	
+		background-color: #073a25;
 	}
+}
 
+@media (max-width: 900px) {
+	.header {
+		width: 150vw;
+	}
+	nav {
+		background-color: #193d1e;
+		width: 100vw;
+	}
 }

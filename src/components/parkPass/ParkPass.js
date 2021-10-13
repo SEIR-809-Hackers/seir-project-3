@@ -1,5 +1,4 @@
 import React from 'react';
-import ParkPassList from './ParkPassList';
 import { useContext } from 'react';
 import { DataContext } from '../../DataContext';
 import hiking from '../../assets/9831.jpg';
@@ -25,12 +24,11 @@ function ParkPass() {
 					{currentUser ? (
 						<div className='hiked-number'>
 							<p className='hiked-number'>
-								{hikedParks.length}/{currentUser.myParks.length}
+								Parks Hiked: {hikedParks.length}/{currentUser.myParks.length}
 							</p>
 						</div>
 					) : <div></div>}
 				</div>
-				<ParkPassList />
 			</div>
 		);
 	}
