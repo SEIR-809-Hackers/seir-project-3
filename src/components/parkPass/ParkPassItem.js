@@ -14,7 +14,7 @@ function ParkPassItem({ user }) {
 	const { addToast } = useToasts();
 	let parks;
 	let hikedParks;
-	if (currentUser) {
+	if (currentUser && currentUser.myParks) {
 		parks = currentUser.myParks;
 		hikedParks = currentUser.myParks.filter((park) => {
 			return park.seen === true;
@@ -78,7 +78,7 @@ function ParkPassItem({ user }) {
 		}
 	}
 
-	if (parks.length < 1) {
+	if (parks === undefined) {
 		return (
 			<div>
 				<div className='no-parks-image'>
