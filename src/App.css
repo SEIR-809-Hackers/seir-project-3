@@ -380,7 +380,7 @@ h3 > a {
 	font-size: 24px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 770px) {
 	.header {
 		width: fit-content;
 	}
@@ -403,6 +403,7 @@ h3 > a {
 	}
 	.park-container {
 		flex-direction: column;
+		width:70vw;
 	}
 
 	.title {
@@ -460,14 +461,18 @@ h3 > a {
 	.heading {
 		background-color: #073a25;
 	}
+
 }
 
-@media (max-width: 800px) {
+@media (max-width: 500px) {
 	.header {
 		width: 150vw;
 	}
 	nav {
 		background-color: #193d1e;
 		width: 100vw;
+	}
+	.carousel-root {
+		display:none;
 	}
 }
