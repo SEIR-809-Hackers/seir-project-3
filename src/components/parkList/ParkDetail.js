@@ -81,6 +81,9 @@ function ParkDetail({ parks, user }) {
 						</div>
 						<div className='park-details'>
 							<p>{selectPark.parkDetails}</p>
+							<div className='park-location'>
+								<p>📍 {selectPark.parkLocation}</p>
+							</div>		
 						</div>
 						<div className='acts'>
 							{!selectPark.activities.length ? (
@@ -102,7 +105,7 @@ function ParkDetail({ parks, user }) {
 								</div>
 							)}
 						</div>
-						<div>
+						<div className='details-div'>
 							{currentUser === undefined ? (
 								''
 							) : (

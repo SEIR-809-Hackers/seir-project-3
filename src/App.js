@@ -7,10 +7,10 @@ import SignIn from './components/header/SignIn';
 import UserForm from './components/header/UserForm';
 import { Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ParkPass from './components/parkPass/ParkPass';
 import axios from 'axios';
 import { DataContext } from './DataContext';
 import ParkSelect from './components/parkList/ParkSelect';
+import ParkPassItem from './components/parkPass/ParkPassItem';
 
 function App() {
 	const [parks, setParks] = useState([]);
@@ -70,7 +70,7 @@ function App() {
 					<Route exact path='/users/login'>
 						<SignIn />
 					</Route>
-					<Route exact path='/parkpass' render={() => <ParkPass />} />
+					<Route exact path='/parkpass' render={() => <ParkPassItem/>} />
 					<div className='parks-layout'>
 						<Route
 							path='/parks'

@@ -38,10 +38,10 @@
 	width: 90%;
 	font-family: 'Roboto', sans-serif;
 	border-bottom: 0.5px solid white;
-	background-color: #308a63;
+	background-color: #308a63; 
 	/* border-bottom: 2px solid #308a63; */
-	padding: 30px 10px;
-	border-radius: 20px;
+	/* padding: 30px 10px;
+	/* border-radius: 20px; */
 }
 
 .each-park:hover {
@@ -52,13 +52,96 @@
 	margin: 0 auto;
 }
 
-.divide {
+/* .divide {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	/* margin-left: 20px; */
-	margin: 0 auto;
-	width: 90%;
+	/* margin: 0 auto;
+	width: 90%; */
+/* } */ */
+
+/* Park Pass Ticket */
+.eachPark {
+	flex-direction: row;
+	width: 30px;
+	/* border-radius: 50px; */
+}
+
+.ticket-container {
+  margin: 20px auto;
+  width: 70vw;
+  box-shadow: 10px 5px rgba(75, 71, 71, 0.075);
+  
+}
+
+.ticket-container:hover {
+	transform: scale(1.1);
+	transition: 1s;
+
+}
+
+.image-container {
+	background-image: url('../../assets/ticket.jpg');
+  background-size: cover;
+  background-size: 300px 350px;
+	height: 200px;
+  /* width:70; */
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.image-container > h2 {
+  margin-top: 10%;
+  color:#095032;
+
+}
+
+.hiked, .location {
+  border-right: 1px dashed black;
+
+} 
+
+.location > p {
+	color:#308a63;
+}
+
+.ticket-info {
+  border: 1px solid rgb(7, 58, 20);
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.delete {
+	font-size: 24px;
+	background-color: #c46e5f;
+
+}
+
+.location {
+  justify-self: flex-start;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.hiked {
+  width: 200px;
+}
+
+.park-btn {
+  margin: auto;
+  
+}
+
+.hiked-btn, .delete {
+	font-size: 15px;
+	margin: 5px;
+}
+
+.pass-btn {
+  font-size: 20px;
+
 }
 
 h4 {
@@ -66,9 +149,9 @@ h4 {
 }
 
 .stamp {
-	height: 10%;
-	width: 10%;
-	margin: 0 15%;
+	height: 80%;
+	width: 80%;
+	margin: 0 auto;
 	border-left: 1px white dashed;
 	border-right: 1px white dashed;
 }
